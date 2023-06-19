@@ -30,6 +30,9 @@
           <li class="nav-item order-1 p-2">
             <router-link class="link" to="/">Home</router-link>
           </li>
+          <li class="nav-item order-1 p-2">
+            <router-link class="link" to="/produto">produto</router-link>
+          </li>
           <li class="nav-item order-2 p-2">
             <router-link class="link" to="/about">About</router-link>
           </li>
