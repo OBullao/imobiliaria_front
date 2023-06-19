@@ -4,9 +4,11 @@
 </template>
 
 <style lang="scss">
+
 *{
-  background-color: #a0a0a0;
+  background-color: #4a4a4a;
 }
+
 // Variable overrides first
 $primary: #900;
 $enable-shadows: true;
@@ -19,7 +21,7 @@ $prefix: "mo-";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #0080ff;
 }
 
 

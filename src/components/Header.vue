@@ -2,13 +2,13 @@
   <nav class="fundo navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
       <router-link class="navbar-brand" to="/">
-        <img
-          src="../assets/logo.png"
-          alt="Logo"
-          width="30"
-          height="30"
-          class="d-inline-block align-text-top"
-        />
+        <div class="logo-container">
+          <img
+            src="../assets/imob.png"
+            alt="Logo"
+            class="logo-image"
+          />
+        </div>
         <a>IMOBILIARIA</a>
       </router-link>
       <button
@@ -27,20 +27,20 @@
         id="navbarNav"
       >
         <ul class="navbar-nav">
-          <li class="nav-item order-1 p-2 ">
+          <li class="nav-item order-1 p-2">
             <router-link class="link" to="/">Home</router-link>
           </li>
-          <li class="nav-item order-2 p-2 ">
+          <li class="nav-item order-2 p-2">
             <router-link class="link" to="/about">About</router-link>
           </li>
-          <li class="nav-item order-3 p-2 ">
+          <li class="nav-item order-3 p-2">
             <router-link class="link" to="/about">dados</router-link>
           </li>
         </ul>
       </div>
       <form class="d-flex" role="search">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
+        <button class="Search btn btn-outline-success" type="submit">Search</button>
       </form>
     </div>
   </nav>
@@ -77,7 +77,7 @@ a {
 }
 
 .link::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -2px;
   left: 0;
@@ -92,9 +92,25 @@ a:hover::after {
   transform: scaleX(1);
 }
 
-.navbar-brand a {
-  font-family: 'Helvetica', sans-serif;
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  font-family: "Helvetica", sans-serif;
   font-weight: bold;
   font-size: 20px;
+}
+
+.logo-container {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 10px;
+}
+
+.logo-image {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
 }
 </style>
