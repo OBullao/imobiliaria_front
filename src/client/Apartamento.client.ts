@@ -11,7 +11,13 @@ export class ApartamentosClient {
       headers: { "Content-type": "application/json" },
     });
   }
-
+  public async findByAll(): Promise<Apartamento> {
+    try {
+      return (await this.axiosClient.get<Apartamento>(`/lista`)).data;
+    } catch (error: any) {
+      return Promise.reject(error.response);
+    }
+  }
   public async findById(id: number): Promise<Apartamento> {
     try {
       return (await this.axiosClient.get<Apartamento>(`/${id}`)).data;
@@ -38,8 +44,9 @@ export class ApartamentosClient {
 
   public async desativar(deasativar: Apartamento): Promise<void> {
     try {
-      return (await this.axiosClient.put(`/desativar/${deasativar.id}`, deasativar))
-        .data;
+      return (
+        await this.axiosClient.put(`/desativar/${deasativar.id}`, deasativar)
+      ).data;
     } catch (error: any) {
       return Promise.reject(error.response);
     }

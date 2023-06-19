@@ -28,20 +28,24 @@
       >
         <ul class="navbar-nav">
           <li class="nav-item order-1 p-2">
-            <router-link class="link" to="/">Home</router-link>
+            <router-link class="nav-link" to="/">Home</router-link>
           </li>
           <li class="nav-item order-2 p-2">
-            <router-link class="link" to="/about">About</router-link>
+            <router-link class="nav-link" to="/about">About</router-link>
           </li>
           <li class="nav-item order-3 p-2">
-            <router-link class="link" to="/about">dados</router-link>
+            <router-link class="lnav-ink" to="/about">dados</router-link>
           </li>
         </ul>
       </div>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="Search btn btn-outline-success" type="submit">Search</button>
-      </form>
+      <ul class="navbar-nav">
+          <li class="nav-item order-1 p-2">
+            <router-link class="nav-link" to="/">Login</router-link>
+          </li>
+          <li class="nav-item order-2 p-2">
+            <router-link class="nav-link" to="/about">Cadastro</router-link>
+          </li>
+        </ul>
     </div>
   </nav>
 </template>
@@ -52,9 +56,6 @@ import { RouterLink } from "vue-router";
 
 export default defineComponent({
   name: "Header",
-  components: {
-    RouterLink,
-  },
 });
 </script>
 
@@ -76,7 +77,7 @@ a {
   position: relative;
 }
 
-.link::after {
+.nav-link::after {
   content: "";
   position: absolute;
   bottom: -2px;

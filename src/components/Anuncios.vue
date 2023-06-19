@@ -1,51 +1,271 @@
 <template>
   <div class="container">
-    <div class="row row-cols-1 row-cols-md-4 justify-content-around mx-auto d-flex">
-      <div class="col mb-4">
+      <div class="row row-cols-1 row-cols-md-4 justify-content-around mx-auto">
+      <div class="col mb-2">
         <div class="card h-100 card-hover fundo">
           <div class="position-relative">
             <img
               src="../assets/b58677ca-24f1-42f4-bcd6-1081f021a27a.jpeg"
               class="card-img-top"
-              alt="..."
+              alt="..."  height="100%"
             />
           </div>
           <div class="fundo card-body text-start">
-            <h5 class="fundo card-title">Propriedade</h5>
+            <h5 class="fundo card-title">bairro</h5>
             <p class="fundo lh-sm ">
-              This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
+              cidade
             </p>
-            <p class="preco fundo lh-sm "> R$100.000</p>
+            <p class=" fundo lh-sm ">
+              descricao basica, diferente da descricao completa
+            </p>
+            <div class="fundo d-flex justify-content-between">
+              <p class="fundo lh-sm">R$preco</p>
+              <p class="fundo lh-sm">metros qudrados m²</p>
+            </div>
           </div>
         </div>
       </div>
+      <div class="col mb-2">
+        <div class="card h-100 card-hover fundo">
+          <div class="position-relative">
+            <img
+              src="../assets/b58677ca-24f1-42f4-bcd6-1081f021a27a.jpeg"
+              class="card-img-top"
+              alt="..."  height="100%"
+            />
+          </div>
+          <div class="fundo card-body text-start">
+            <h5 class="fundo card-title">bairro</h5>
+            <p class="fundo lh-sm ">
+              cidade
+            </p>
+            <p class=" fundo lh-sm ">
+              descricao basica, diferente da descricao completa
+            </p>
+            <div class="fundo d-flex justify-content-between">
+              <p class="fundo lh-sm">R$preco</p>
+              <p class="fundo lh-sm">metros qudrados m²</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col mb-2">
+        <div class="card h-100 card-hover fundo">
+          <div class="position-relative">
+            <img
+              src="../assets/b58677ca-24f1-42f4-bcd6-1081f021a27a.jpeg"
+              class="card-img-top"
+              alt="..."  height="100%"
+            />
+          </div>
+          <div class="fundo card-body text-start">
+            <h5 class="fundo card-title">bairro</h5>
+            <p class="fundo lh-sm ">
+              cidade
+            </p>
+            <p class=" fundo lh-sm ">
+              descricao basica, diferente da descricao completa
+            </p>
+            <div class="fundo d-flex justify-content-between">
+              <p class="fundo lh-sm">R$preco</p>
+              <p class="fundo lh-sm">metros qudrados m²</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col mb-2">
+        <div class="card h-100 card-hover fundo">
+          <div class="position-relative">
+            <img
+              src="../assets/b58677ca-24f1-42f4-bcd6-1081f021a27a.jpeg"
+              class="card-img-top"
+              alt="..."  height="100%"
+            />
+          </div>
+          <div class="fundo card-body text-start">
+            <h5 class="fundo card-title">bairro</h5>
+            <p class="fundo lh-sm ">
+              cidade
+            </p>
+            <p class=" fundo lh-sm ">
+              descricao basica, diferente da descricao completa
+            </p>
+            <div class="fundo d-flex justify-content-between">
+              <p class="fundo lh-sm">R$preco</p>
+              <p class="fundo lh-sm">metros qudrados m²</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col mb-2">
+        <div class="card h-100 card-hover fundo">
+          <div class="position-relative">
+            <img
+              src="../assets/b58677ca-24f1-42f4-bcd6-1081f021a27a.jpeg"
+              class="card-img-top"
+              alt="..."  height="100%"
+            />
+          </div>
+          <div class="fundo card-body text-start">
+            <h5 class="fundo card-title">bairro</h5>
+            <p class="fundo lh-sm ">
+              cidade
+            </p>
+            <p class=" fundo lh-sm ">
+              descricao basica, diferente da descricao completa
+            </p>
+            <div class="fundo d-flex justify-content-between">
+              <p class="fundo lh-sm">R$preco</p>
+              <p class="fundo lh-sm">metros qudrados m²</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col mb-2">
+        <div class="card h-100 card-hover fundo">
+          <div class="position-relative">
+            <img
+              src="../assets/b58677ca-24f1-42f4-bcd6-1081f021a27a.jpeg"
+              class="card-img-top"
+              alt="..."  height="100%"
+            />
+          </div>
+          <div class="fundo card-body text-start">
+            <h5 class="fundo card-title">bairro</h5>
+            <p class="fundo lh-sm ">
+              cidade
+            </p>
+            <p class=" fundo lh-sm ">
+              descricao basica, diferente da descricao completa
+            </p>
+            <div class="fundo d-flex justify-content-between">
+              <p class="fundo lh-sm">R$preco</p>
+              <p class="fundo lh-sm">metros qudrados m²</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col mb-2">
+        <div class="card h-100 card-hover fundo">
+          <div class="position-relative">
+            <img
+              src="../assets/b58677ca-24f1-42f4-bcd6-1081f021a27a.jpeg"
+              class="card-img-top"
+              alt="..."  height="100%"
+            />
+          </div>
+          <div class="fundo card-body text-start">
+            <h5 class="fundo card-title">bairro</h5>
+            <p class="fundo lh-sm ">
+              cidade
+            </p>
+            <p class=" fundo lh-sm ">
+              descricao basica, diferente da descricao completa
+            </p>
+            <div class="fundo d-flex justify-content-between">
+              <p class="fundo lh-sm">R$preco</p>
+              <p class="fundo lh-sm">metros qudrados m²</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col mb-2">
+        <div class="card h-100 card-hover fundo">
+          <div class="position-relative">
+            <img
+              src="../assets/b58677ca-24f1-42f4-bcd6-1081f021a27a.jpeg"
+              class="card-img-top"
+              alt="..."  height="100%"
+            />
+          </div>
+          <div class="fundo card-body text-start">
+            <h5 class="fundo card-title">bairro</h5>
+            <p class="fundo lh-sm ">
+              cidade
+            </p>
+            <p class=" fundo lh-sm ">
+              descricao basica, diferente da descricao completa
+            </p>
+            <div class="fundo d-flex justify-content-between">
+              <p class="fundo lh-sm">R$preco</p>
+              <p class="fundo lh-sm">metros qudrados m²</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col mb-2">
+        <div class="card h-100 card-hover fundo">
+          <div class="position-relative">
+            <img
+              src="../assets/b58677ca-24f1-42f4-bcd6-1081f021a27a.jpeg"
+              class="card-img-top"
+              alt="..."  height="100%"
+            />
+          </div>
+          <div class="fundo card-body text-start">
+            <h5 class="fundo card-title">bairro</h5>
+            <p class="fundo lh-sm ">
+              cidade
+            </p>
+            <p class=" fundo lh-sm ">
+              descricao basica, diferente da descricao completa
+            </p>
+            <div class="fundo d-flex justify-content-between">
+              <p class="fundo lh-sm">R$preco</p>
+              <p class="fundo lh-sm">metros qudrados m²</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col mb-2">
+        <div class="card h-100 card-hover fundo">
+          <div class="position-relative">
+            <img
+              src="../assets/b58677ca-24f1-42f4-bcd6-1081f021a27a.jpeg"
+              class="card-img-top"
+              alt="..."  height="100%"
+            />
+          </div>
+          <div class="fundo card-body text-start">
+            <h5 class="fundo card-title">bairro</h5>
+            <p class="fundo lh-sm ">
+              cidade
+            </p>
+            <p class=" fundo lh-sm ">
+              descricao basica, diferente da descricao completa
+            </p>
+            <div class="fundo d-flex justify-content-between">
+              <p class="fundo lh-sm">R$preco</p>
+              <p class="fundo lh-sm">metros qudrados m²</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </template>
 
+
 <style scoped>
-.card-hover {
-  transition: transform 0.3s ease;
-}
-
 .card-hover:hover {
-  transform: scale(1.05);
+  transform: scale(1.04);
+  background-color: aqua;
 }
 
-.mb-4 {
-  margin-bottom: 1rem;
+.mb-2 {
+  margin-bottom: 0.5rem;
 }
 
 .fundo {
-  background-color: #f8f9fa; /* Cor de fundo desejada */
+  background-color: #f8f9fa;
+  border-radius: 5%;
 }
 
 .card {
-  border: none; /* Remover a borda */
-}
-
-.preco {
-  border-radius: 30% 0% 0% 0%;
+  border: none;
+  border-radius: 5%;
+  overflow: hidden; /* Adicionado overflow: hidden */
 }
 
 .glass-effect {
@@ -54,14 +274,17 @@
 }
 
 .larger-width {
-  width: 150px; /* Ajuste a largura desejada */
+  width: 150px;
 }
 
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
 .smaller-font {
-  font-size: 18px; /* Ajuste o tamanho da fonte desejado */
+  font-size: 18px;
 }
 
 img {
-  border-radius: 5%;
+  border-radius: 6%;
 }
 </style>
