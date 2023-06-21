@@ -1,55 +1,47 @@
 <template>
-  <nav class="fundo navbar navbar-expand-lg bg-body-tertiary">
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
-      <router-link class="navbar-brand" to="/">
-        <div class="logo-container">
-          <img
+      <img
             src="../assets/imob.png"
             alt="Logo"
-            class="logo-image"
+            class="logo-image" width="50" height="50"
           />
-        </div>
-        <a>IMOBILIARIA</a>
-      </router-link>
+      <a class="navbar-brand" href="#">imobiliaria</a>
       <button
         class="navbar-toggler"
         type="button"
         data-bs-toggle="collapse"
-        data-bs-target="#navbarNav"
-        aria-controls="navbarNav"
+        data-bs-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup"
         aria-expanded="false"
         aria-label="Toggle navigation"
       >
-        <span class="navbar-toggler-icon"></span>
+        <span class="navbar-toggler-icon" style="border: none"></span>
       </button>
-      <div
-        class="collapse navbar-collapse justify-content-around d-flex flex-nowrap"
-        id="navbarNav"
-      >
-        <ul class="navbar-nav">
-          <li class="nav-item order-1 p-2">
-            <router-link class="nav-link" to="/">Home</router-link>
-          </li>
-          <li class="nav-item order-2 p-2">
-            <router-link class="nav-link" to="/about">About</router-link>
-          </li>
-          <li class="nav-item order-3 p-2">
-            <router-link class="lnav-ink" to="/about">dados</router-link>
-          </li>
-        </ul>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <router-link class="nav-link" to="/">Home</router-link>
+          <router-link class="nav-link" to="/about">about</router-link>
+            
+        </div>
+        <div class="navbar-nav ms-auto">
+          <router-link class="nav-link" to="/login">Login</router-link>
+          <form class="d-flex" role="search">
+            <input
+              class="form-control me-2 custom-search-input"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <button class="btn btn-outline-success" type="submit">
+              Search
+            </button>
+          </form>
+        </div>
       </div>
-      <ul class="navbar-nav">
-          <li class="nav-item order-1 p-2">
-            <router-link class="nav-link" to="/">Login</router-link>
-          </li>
-          <li class="nav-item order-2 p-2">
-            <router-link class="nav-link" to="/about">Cadastro</router-link>
-          </li>
-        </ul>
     </div>
   </nav>
 </template>
-
 <script>
 import { defineComponent } from "vue";
 import { RouterLink } from "vue-router";
@@ -58,17 +50,12 @@ export default defineComponent({
   name: "Header",
 });
 </script>
-
 <style scoped>
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   background-color: rgb(160, 134, 168);
-}
-
-.menu {
-  height: 100px;
 }
 
 a {
@@ -93,12 +80,8 @@ a:hover::after {
   transform: scaleX(1);
 }
 
-.navbar-brand {
-  display: flex;
-  align-items: center;
-  font-family: "Helvetica", sans-serif;
-  font-weight: bold;
-  font-size: 20px;
+.custom-search-input {
+  width: 200px; /* Defina a largura desejada para o campo de pesquisa */
 }
 
 .logo-container {
@@ -108,10 +91,8 @@ a:hover::after {
   overflow: hidden;
   margin-right: 10px;
 }
-
-.logo-image {
-  object-fit: contain;
-  width: 100%;
-  height: 100%;
+.logo-image{
+  border-radius: 100%  ;
 }
+
 </style>

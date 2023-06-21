@@ -1,4 +1,10 @@
 <template>
+
+
+
+
+
+
   <div class="container">
       <div class="row row-cols-1 row-cols-md-4 justify-content-around mx-auto">
       <div class="col mb-2">
