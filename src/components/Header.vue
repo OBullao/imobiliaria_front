@@ -22,6 +22,7 @@
         <div class="navbar-nav">
           <router-link class="nav-link" to="/">Home</router-link>
           <router-link class="nav-link" to="/about">about</router-link>
+          <router-link class="nav-link" to="/dados">dados</router-link> <!--deve aparecer apenas para o adm-->
             
         </div>
         <div class="navbar-nav ms-auto">
