@@ -59,6 +59,7 @@
       <div class="btn-group" role="group" aria-label="Basic mixed styles example">
         <button type="button" class="btn btn-sm btn-warning">Editar</button>
         <button type="button" class="btn btn-sm btn-danger">Excluir</button>
+        <button type="button" class="btn btn-sm btn-info">info</button>
       </div>
     </td>
   </tr>
@@ -84,6 +85,7 @@
       <div class="btn-group" role="group" aria-label="Basic mixed styles example">
         <button type="button" class="btn btn-sm btn-warning">Editar</button>
         <button type="button" class="btn btn-sm btn-danger">Excluir</button>
+        <button type="button" class="btn btn-sm btn-info">info</button>
       </div>
     </td>
   </tr>
@@ -105,6 +107,7 @@
       <div class="btn-group" role="group" aria-label="Basic mixed styles example">
         <button type="button" class="btn btn-sm btn-warning">Editar</button>
         <button type="button" class="btn btn-sm btn-danger">Excluir</button>
+        <button type="button" class="btn btn-sm btn-info">info</button>
       </div>
     </td>
   </tr>
@@ -126,6 +129,7 @@
       <div class="btn-group" role="group" aria-label="Basic mixed styles example">
         <button type="button" class="btn btn-sm btn-warning">Editar</button>
         <button type="button" class="btn btn-sm btn-danger">Excluir</button>
+        <button type="button" class="btn btn-sm btn-info">info</button>
       </div>
     </td>
   </tr>
@@ -141,12 +145,13 @@
     <td class="text-start">Nome da Cidade</td>
     <td class="text-start">Código do Proprietário</td>
     <td>
-      <span class="badge text-bg-success">Ativo</span>
+      <span class="badge text-bg-danger">Ativo</span>
     </td>
     <td>
       <div class="btn-group" role="group" aria-label="Basic mixed styles example">
         <button type="button" class="btn btn-sm btn-warning">Editar</button>
         <button type="button" class="btn btn-sm btn-danger">Excluir</button>
+        <button type="button" class="btn btn-sm btn-info">info</button>
       </div>
     </td>
   </tr>

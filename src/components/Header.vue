@@ -1,11 +1,13 @@
 <template>
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
     <div class="container-fluid">
       <img
-            src="../assets/imob.png"
-            alt="Logo"
-            class="logo-image" width="50" height="50"
-          />
+        src="../assets/imob.png"
+        alt="Logo"
+        class="logo-image"
+        width="50"
+        height="50"
+      />
       <a class="navbar-brand" href="#">imobiliaria</a>
       <button
         class="navbar-toggler"
@@ -23,7 +25,6 @@
           <router-link class="nav-link" to="/">Home</router-link>
           <router-link class="nav-link" to="/about">about</router-link>
           <router-link class="nav-link" to="/dados">dados</router-link> <!--deve aparecer apenas para o adm-->
-            
         </div>
         <div class="navbar-nav ms-auto">
           <router-link class="nav-link" to="/login">Login</router-link>
@@ -43,6 +44,7 @@
     </div>
   </nav>
 </template>
+
 <script>
 import { defineComponent } from "vue";
 import { RouterLink } from "vue-router";
@@ -51,6 +53,7 @@ export default defineComponent({
   name: "Header",
 });
 </script>
+
 <style scoped>
 * {
   margin: 0;
@@ -92,8 +95,15 @@ a:hover::after {
   overflow: hidden;
   margin-right: 10px;
 }
-.logo-image{
-  border-radius: 100%  ;
+
+.logo-image {
+  border-radius: 100%;
 }
 
+.fixed-top {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
 </style>
