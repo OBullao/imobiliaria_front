@@ -7,7 +7,7 @@
 <style lang="scss">
 
 *{
-  background-color: #4a4a4a;
+  background-color: #bebebe;
 }
 
 // Variable overrides first

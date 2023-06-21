@@ -264,19 +264,20 @@
 }
 
 .fundo {
-  background-color: #f8f9fa;
-  border-radius: 5%;
+  background-color: #ffffff;
+  border-radius: 2%;
 }
 
 .card {
   border: none;
   border-radius: 5%;
   overflow: hidden; /* Adicionado overflow: hidden */
+  box-shadow: 1px 1px 6px rgb(88, 88, 88);
 }
 
 .glass-effect {
   backdrop-filter: blur(8px);
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgb(255, 255, 255);
 }
 
 .larger-width {
@@ -291,6 +292,6 @@
 }
 
 img {
-  border-radius: 6%;
+  border-radius: 2%;
 }
 </style>
