@@ -1,20 +1,20 @@
 <template>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <div class="container">
-      <div class="row">
-        <!--Aqui eu to dividindo minha tela em 12 partes iguais com o bootstrap-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <div class="container">
+    <div class="row">
+      <!--Aqui eu to dividindo minha tela em 12 partes iguais com o bootstrap-->
         <div class="col-12" style="text-align: left;">
           <br>
           <h2> ap  do exemplo</h2>
         </div>
         <div class="container">
           <div class="row">
-            <div class="col-9" style="text-align: left;">
+            <div class="col-12" style="text-align: left;">
               <!--Aqui eu to dividindo minha tela em 9 partes iguais com o bootstrap-->
               Descrição:
               <br>
             </div>
-              <!--Das 9 partes divididas aqui tenho uma divisao em 6 partes-->
+            <!--Das 9 partes divididas aqui tenho uma divisao em 6 partes-->
             <div class="col-6 text-container">
               aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
               aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -30,12 +30,9 @@
     
     
     
-    
-                <!--Exemplo de comentario-->
-    
+
             <!--Das 9 partes divididas aqui tenho uma divisao em 6 partes-->
-            <div class="col-6 custom-div Informacoes" style="text-align: left;">
-              <div class="image-container">
+              <div class="col-6 Informacoes">
                 Informacoes sobre o apartemento:
                 <br>
                 500m2.
@@ -66,18 +63,11 @@
                 1 Varanda.
                 <br>
               </div>
-            </div>
-    
-    
-    
-    
-    
-    
           </div>
-        </div>
+       </div>
       </div>
-    </div>
-    </template>
+  </div>
+</template>
 
     
     <style scoped lang="scss">
@@ -86,17 +76,15 @@
     color: white;
   }
     .text-container{
+  /*Aqui eu altero tudo sobre a minha descricao*/
       max-width: 600px;
       word-wrap: break-word;
       justify-content: right;
     }
     .Informacoes{
-      background-color: #42b950;
-      color: black;
-    }
-   .image-container{
-      background-color: #42b950;
-      color: black;
+  /*Aqui eu altero tudo sobre as informacoes do apartamento(Como bloco)*/
+      text-align: left;
+      padding-left: 30%;
     }
     </style>
     
