@@ -1,12 +1,10 @@
 <template>
-  <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
+  <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top w-100">
     <div class="container-fluid">
       <img
         src="../assets/imob.png"
         alt="Logo"
-        class="logo-image"
-        width="50"
-        height="50"
+        class="logo-image" width="50" height="50"
       />
       <a class="navbar-brand" href="#">imobiliaria</a>
       <button
@@ -23,8 +21,8 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
           <router-link class="nav-link" to="/">Home</router-link>
-          <router-link class="nav-link" to="/about">about</router-link>
-          <router-link class="nav-link" to="/dados">dados</router-link> <!--deve aparecer apenas para o adm-->
+          <router-link class="nav-link" to="/about">About</router-link>
+          <router-link class="nav-link" to="/dados">Dados</router-link>
         </div>
         <div class="navbar-nav ms-auto">
           <router-link class="nav-link" to="/login">Login</router-link>
@@ -51,6 +49,11 @@ import { RouterLink } from "vue-router";
 
 export default defineComponent({
   name: "Header",
+  data() {
+    return {
+      isAdmin: true // Altere para true ou false, dependendo da lógica de administração
+    };
+  }
 });
 </script>
 
@@ -100,10 +103,4 @@ a:hover::after {
   border-radius: 100%;
 }
 
-.fixed-top {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-}
 </style>

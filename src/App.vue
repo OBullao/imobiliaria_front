@@ -1,6 +1,7 @@
 <template>
- 
-  <router-view/>
+  <div style="margin-top: 100px;">
+    <router-view/>
+  </div>
 </template>
 
 <style lang="scss">
@@ -23,6 +24,5 @@ $prefix: "mo-";
   text-align: center;
   color: #0080ff;
 }
-
 
 </style>

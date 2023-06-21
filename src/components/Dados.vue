@@ -1,7 +1,7 @@
 <template>
   <div class="container" style="margin-top: 10px">
     <div class="row">
-      <div class="col-md-11 text-start"><p class="fs-3">Imoveis</p></div>
+      <div class="col-md-11  text-start"><p class="fs-3">Imoveis</p></div>
       <div class="col-md-1">
         <div class="d-grid gap-2">
           <router-link
