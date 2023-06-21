@@ -23,8 +23,10 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
           <router-link class="nav-link" to="/">Home</router-link>
-          <router-link class="nav-link" to="/about">about</router-link>
-          <router-link class="nav-link" to="/dados">dados</router-link> <!--deve aparecer apenas para o adm-->
+          <router-link class="nav-link" to="/about">About</router-link>
+          <router-link class="nav-link" to="/produto">Produto</router-link>
+          <!-- Mostra o link "Dados" apenas para o administrador -->
+          <router-link v-if="isAdmin" class="nav-link" to="/dados">Dados</router-link>
         </div>
         <div class="navbar-nav ms-auto">
           <router-link class="nav-link" to="/login">Login</router-link>
@@ -51,6 +53,14 @@ import { RouterLink } from "vue-router";
 
 export default defineComponent({
   name: "Header",
+  data() {
+    return {
+      isAdmin: false // Defina o valor correto para a propriedade "isAdmin" com base na lógica de autenticação do seu sistema
+    };
+  },
+  components: {
+    RouterLink
+  }
 });
 </script>
 
