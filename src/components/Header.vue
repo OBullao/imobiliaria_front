@@ -1,50 +1,48 @@
 <template>
-  <nav class="fundo navbar navbar-expand-lg bg-body-tertiary">
+  <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
     <div class="container-fluid">
-      <router-link class="navbar-brand" to="/">
-        <div class="logo-container">
-          <img
-            src="../assets/imob.png"
-            alt="Logo"
-            class="logo-image"
-          />
-        </div>
-        <a>IMOBILIARIA</a>
-      </router-link>
+      <img
+        src="../assets/imob.png"
+        alt="Logo"
+        class="logo-image"
+        width="50"
+        height="50"
+      />
+      <a class="navbar-brand" href="#">imobiliaria</a>
       <button
         class="navbar-toggler"
         type="button"
         data-bs-toggle="collapse"
-        data-bs-target="#navbarNav"
-        aria-controls="navbarNav"
+        data-bs-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup"
         aria-expanded="false"
         aria-label="Toggle navigation"
       >
-        <span class="navbar-toggler-icon"></span>
+        <span class="navbar-toggler-icon" style="border: none"></span>
       </button>
-      <div
-        class="collapse navbar-collapse justify-content-around d-flex flex-nowrap"
-        id="navbarNav"
-      >
-        <ul class="navbar-nav">
-          <li class="nav-item order-1 p-2">
-            <router-link class="link" to="/">Home</router-link>
-          </li>
-          <li class="nav-item order-1 p-2">
-            <router-link class="link" to="/produto">produto</router-link>
-          </li>
-          <li class="nav-item order-2 p-2">
-            <router-link class="link" to="/about">About</router-link>
-          </li>
-          <li class="nav-item order-3 p-2">
-            <router-link class="link" to="/about">dados</router-link>
-          </li>
-        </ul>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <router-link class="nav-link" to="/">Home</router-link>
+          <router-link class="nav-link" to="/about">About</router-link>
+          <router-link class="nav-link" to="/produto">Produto</router-link>
+          <!-- Mostra o link "Dados" apenas para o administrador -->
+          <router-link v-if="isAdmin" class="nav-link" to="/dados">Dados</router-link>
+        </div>
+        <div class="navbar-nav ms-auto">
+          <router-link class="nav-link" to="/login">Login</router-link>
+          <form class="d-flex" role="search">
+            <input
+              class="form-control me-2 custom-search-input"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <button class="btn btn-outline-success" type="submit">
+              Search
+            </button>
+          </form>
+        </div>
       </div>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="Search btn btn-outline-success" type="submit">Search</button>
-      </form>
     </div>
   </nav>
 </template>
@@ -55,9 +53,14 @@ import { RouterLink } from "vue-router";
 
 export default defineComponent({
   name: "Header",
-  components: {
-    RouterLink,
+  data() {
+    return {
+      isAdmin: false // Defina o valor correto para a propriedade "isAdmin" com base na lógica de autenticação do seu sistema
+    };
   },
+  components: {
+    RouterLink
+  }
 });
 </script>
 
@@ -69,17 +72,13 @@ export default defineComponent({
   background-color: rgb(160, 134, 168);
 }
 
-.menu {
-  height: 100px;
-}
-
 a {
   color: white;
   text-decoration: none;
   position: relative;
 }
 
-.link::after {
+.nav-link::after {
   content: "";
   position: absolute;
   bottom: -2px;
@@ -95,12 +94,8 @@ a:hover::after {
   transform: scaleX(1);
 }
 
-.navbar-brand {
-  display: flex;
-  align-items: center;
-  font-family: "Helvetica", sans-serif;
-  font-weight: bold;
-  font-size: 20px;
+.custom-search-input {
+  width: 200px; /* Defina a largura desejada para o campo de pesquisa */
 }
 
 .logo-container {
@@ -112,8 +107,13 @@ a:hover::after {
 }
 
 .logo-image {
-  object-fit: contain;
-  width: 100%;
-  height: 100%;
+  border-radius: 100%;
+}
+
+.fixed-top {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
 }
 </style>
