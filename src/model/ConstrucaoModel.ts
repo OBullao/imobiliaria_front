@@ -1,7 +1,7 @@
 import { AbstractEntity } from "./AbstractEntity";
 import { Apartamento } from "./Apartamento";
 import { Tipo } from "./Tipo";
-export class Construcao extends AbstractEntity{
+export class ConstrucaoModel extends AbstractEntity{
     tipo!:Tipo
     quartos!:Number
     metrosQuadrados!:Number

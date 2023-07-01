@@ -1,10 +1,4 @@
 <template>
-
-
-
-
-
-
   <div class="container">
       <div class="row row-cols-1 row-cols-md-4 justify-content-around mx-auto">
       <div class="col mb-2">
@@ -31,226 +25,69 @@
           </div>
         </div>
       </div>
-      <div class="col mb-2">
+      
+
+
+      <div v-for="item in List" :key="item.id" class="col mb-2">
         <div class="card h-100 card-hover fundo">
           <div class="position-relative">
             <img
-              src="../assets/b58677ca-24f1-42f4-bcd6-1081f021a27a.jpeg"
+              src="{{item.descricao.fotos}}"
               class="card-img-top"
               alt="..."  height="100%"
             />
           </div>
           <div class="fundo card-body text-start">
-            <h5 class="fundo card-title">bairro</h5>
+            <h5 class="fundo card-title">{{item.localizacao.bairro}}</h5>
             <p class="fundo lh-sm ">
-              cidade
+              {{item.localizacao.cidade}}
             </p>
             <p class=" fundo lh-sm ">
-              descricao basica, diferente da descricao completa
+              {{ item.descricao.descricao }}
             </p>
             <div class="fundo d-flex justify-content-between">
-              <p class="fundo lh-sm">R$preco</p>
-              <p class="fundo lh-sm">metros qudrados m²</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col mb-2">
-        <div class="card h-100 card-hover fundo">
-          <div class="position-relative">
-            <img
-              src="../assets/b58677ca-24f1-42f4-bcd6-1081f021a27a.jpeg"
-              class="card-img-top"
-              alt="..."  height="100%"
-            />
-          </div>
-          <div class="fundo card-body text-start">
-            <h5 class="fundo card-title">bairro</h5>
-            <p class="fundo lh-sm ">
-              cidade
-            </p>
-            <p class=" fundo lh-sm ">
-              descricao basica, diferente da descricao completa
-            </p>
-            <div class="fundo d-flex justify-content-between">
-              <p class="fundo lh-sm">R$preco</p>
-              <p class="fundo lh-sm">metros qudrados m²</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col mb-2">
-        <div class="card h-100 card-hover fundo">
-          <div class="position-relative">
-            <img
-              src="../assets/b58677ca-24f1-42f4-bcd6-1081f021a27a.jpeg"
-              class="card-img-top"
-              alt="..."  height="100%"
-            />
-          </div>
-          <div class="fundo card-body text-start">
-            <h5 class="fundo card-title">bairro</h5>
-            <p class="fundo lh-sm ">
-              cidade
-            </p>
-            <p class=" fundo lh-sm ">
-              descricao basica, diferente da descricao completa
-            </p>
-            <div class="fundo d-flex justify-content-between">
-              <p class="fundo lh-sm">R$preco</p>
-              <p class="fundo lh-sm">metros qudrados m²</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col mb-2">
-        <div class="card h-100 card-hover fundo">
-          <div class="position-relative">
-            <img
-              src="../assets/b58677ca-24f1-42f4-bcd6-1081f021a27a.jpeg"
-              class="card-img-top"
-              alt="..."  height="100%"
-            />
-          </div>
-          <div class="fundo card-body text-start">
-            <h5 class="fundo card-title">bairro</h5>
-            <p class="fundo lh-sm ">
-              cidade
-            </p>
-            <p class=" fundo lh-sm ">
-              descricao basica, diferente da descricao completa
-            </p>
-            <div class="fundo d-flex justify-content-between">
-              <p class="fundo lh-sm">R$preco</p>
-              <p class="fundo lh-sm">metros qudrados m²</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col mb-2">
-        <div class="card h-100 card-hover fundo">
-          <div class="position-relative">
-            <img
-              src="../assets/b58677ca-24f1-42f4-bcd6-1081f021a27a.jpeg"
-              class="card-img-top"
-              alt="..."  height="100%"
-            />
-          </div>
-          <div class="fundo card-body text-start">
-            <h5 class="fundo card-title">bairro</h5>
-            <p class="fundo lh-sm ">
-              cidade
-            </p>
-            <p class=" fundo lh-sm ">
-              descricao basica, diferente da descricao completa
-            </p>
-            <div class="fundo d-flex justify-content-between">
-              <p class="fundo lh-sm">R$preco</p>
-              <p class="fundo lh-sm">metros qudrados m²</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col mb-2">
-        <div class="card h-100 card-hover fundo">
-          <div class="position-relative">
-            <img
-              src="../assets/b58677ca-24f1-42f4-bcd6-1081f021a27a.jpeg"
-              class="card-img-top"
-              alt="..."  height="100%"
-            />
-          </div>
-          <div class="fundo card-body text-start">
-            <h5 class="fundo card-title">bairro</h5>
-            <p class="fundo lh-sm ">
-              cidade
-            </p>
-            <p class=" fundo lh-sm ">
-              descricao basica, diferente da descricao completa
-            </p>
-            <div class="fundo d-flex justify-content-between">
-              <p class="fundo lh-sm">R$preco</p>
-              <p class="fundo lh-sm">metros qudrados m²</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col mb-2">
-        <div class="card h-100 card-hover fundo">
-          <div class="position-relative">
-            <img
-              src="../assets/b58677ca-24f1-42f4-bcd6-1081f021a27a.jpeg"
-              class="card-img-top"
-              alt="..."  height="100%"
-            />
-          </div>
-          <div class="fundo card-body text-start">
-            <h5 class="fundo card-title">bairro</h5>
-            <p class="fundo lh-sm ">
-              cidade
-            </p>
-            <p class=" fundo lh-sm ">
-              descricao basica, diferente da descricao completa
-            </p>
-            <div class="fundo d-flex justify-content-between">
-              <p class="fundo lh-sm">R$preco</p>
-              <p class="fundo lh-sm">metros qudrados m²</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col mb-2">
-        <div class="card h-100 card-hover fundo">
-          <div class="position-relative">
-            <img
-              src="../assets/b58677ca-24f1-42f4-bcd6-1081f021a27a.jpeg"
-              class="card-img-top"
-              alt="..."  height="100%"
-            />
-          </div>
-          <div class="fundo card-body text-start">
-            <h5 class="fundo card-title">bairro</h5>
-            <p class="fundo lh-sm ">
-              cidade
-            </p>
-            <p class=" fundo lh-sm ">
-              descricao basica, diferente da descricao completa
-            </p>
-            <div class="fundo d-flex justify-content-between">
-              <p class="fundo lh-sm">R$preco</p>
-              <p class="fundo lh-sm">metros qudrados m²</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col mb-2">
-        <div class="card h-100 card-hover fundo">
-          <div class="position-relative">
-            <img
-              src="../assets/b58677ca-24f1-42f4-bcd6-1081f021a27a.jpeg"
-              class="card-img-top"
-              alt="..."  height="100%"
-            />
-          </div>
-          <div class="fundo card-body text-start">
-            <h5 class="fundo card-title">bairro</h5>
-            <p class="fundo lh-sm ">
-              cidade
-            </p>
-            <p class=" fundo lh-sm ">
-              descricao basica, diferente da descricao completa
-            </p>
-            <div class="fundo d-flex justify-content-between">
-              <p class="fundo lh-sm">R$preco</p>
-              <p class="fundo lh-sm">metros qudrados m²</p>
+              <p class="fundo lh-sm">{{"R$"+item.valor}}</p>
+              <p class="fundo lh-sm">{{item.construcao.metrosQuadrados+"m²"}}</p>
             </div>
           </div>
         </div>
       </div>
 
+      
     </div>
   </div>
 </template>
+
+
+<script lang="ts">
+import { defineComponent } from 'vue';
+import PropriedadeClient from '@/client/Propriedade.client';
+import { PropriedadeModel } from '@/model/PropriedadeModel';
+
+export default defineComponent({
+  name: 'Lista',
+  data() {
+    return {
+      List: new Array<PropriedadeModel>()
+    };
+  },
+  mounted() {
+    this.findAll();
+  },
+  methods: {
+    findAll() {
+      PropriedadeClient.listaAll()
+        .then(success => {
+          this.List = success;
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    }
+  }
+});
+</script>
+
 
 
 <style scoped>
