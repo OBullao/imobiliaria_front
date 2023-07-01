@@ -1,5 +1,5 @@
 import axios, { AxiosInstance } from "axios";
-import { Construcao } from "@/model/ConstrucaoModel";
+import { ConstrucaoModel } from "@/model/ConstrucaoModel";
 import { PageRequest } from "@/model/page/page-request";
 import { PageResponse } from "@/model/page/page-response";
 export class ConstrucaoClient {
@@ -12,15 +12,15 @@ export class ConstrucaoClient {
     });
   }
 
-  public async findById(id: number): Promise<Construcao> {
+  public async findById(id: number): Promise<ConstrucaoModel> {
     try {
-      return (await this.axiosClient.get<Construcao>(`/${id}`)).data;
+      return (await this.axiosClient.get<ConstrucaoModel>(`/${id}`)).data;
     } catch (error: any) {
       return Promise.reject(error.response);
     }
   }
 
-  public async cadastrar(cadastrar: Construcao): Promise<void> {
+  public async cadastrar(cadastrar: ConstrucaoModel): Promise<void> {
     try {
       return await this.axiosClient.post("/", cadastrar);
     } catch (error: any) {
@@ -28,7 +28,7 @@ export class ConstrucaoClient {
     }
   }
 
-  public async editar(editar: Construcao): Promise<void> {
+  public async editar(editar: ConstrucaoModel): Promise<void> {
     try {
       return (await this.axiosClient.put(`/${editar.id}`, editar)).data;
     } catch (error: any) {
@@ -36,7 +36,7 @@ export class ConstrucaoClient {
     }
   }
 
-  public async desativar(deasativar: Construcao): Promise<void> {
+  public async desativar(deasativar: ConstrucaoModel): Promise<void> {
     try {
       return (await this.axiosClient.put(`/desativar/${deasativar.id}`, deasativar))
         .data;
@@ -47,7 +47,7 @@ export class ConstrucaoClient {
 
   public async findByFiltrosPaginado(
     pageRequest: PageRequest
-  ): Promise<PageResponse<Construcao>> {
+  ): Promise<PageResponse<ConstrucaoModel>> {
     try {
       let requestPath = "";
 
@@ -58,7 +58,7 @@ export class ConstrucaoClient {
       },${pageRequest.direction}`;
 
       return (
-        await this.axiosClient.get<PageResponse<Construcao>>(requestPath, {
+        await this.axiosClient.get<PageResponse<ConstrucaoModel>>(requestPath, {
           params: { filtros: pageRequest.filter },
         })
       ).data;

@@ -27,6 +27,35 @@ const routes: Array<RouteRecordRaw> = [
     name: 'dados',
     component: () => import(/* webpackChunkName: "dados" */ '../views/DadosView.vue')
   }
+  ,
+  {
+    path: '/dadosDeAnuncio',
+    name: 'dados-anuncio-views',
+    component: () => import(/* webpackChunkName: "dados" */ '../views/DadosView.vue')
+  },
+  {
+    path: '/dadosDePropriedade',
+    name: 'dados-propriedade-adm-views',
+    component: () => import(/* webpackChunkName: "dados" */ '../views/DadosView.vue')
+  },
+  {
+    path: '/propriedade/Formulario',
+    name: 'propriedade-formulario-view',
+    component: () => import(/* webpackChunkName: "about" */ '../views/DadosView.vue'),
+    children: [
+      {
+        path: '/propriedade/formulario',
+        name: 'propriedade-formulario-editar-view',
+        component: () => import(/* webpackChunkName: "about" */ '../views/DadosView.vue')
+      },
+      {
+        path: '/propriedade/formulario',
+        name: 'propriedade-formulario-excluir-view',
+        component: () => import(/* webpackChunkName: "about" */ '../views/DadosView.vue')
+      }
+    ]
+  }
+
 ]
 
 const router = createRouter({
