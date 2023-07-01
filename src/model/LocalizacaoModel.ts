@@ -1,5 +1,5 @@
 import { AbstractEntity } from "./AbstractEntity";
-export class localizacao extends AbstractEntity{
+export class localizacaoModel extends AbstractEntity{
     cep!:String
     numero!:Number
     rua!:String

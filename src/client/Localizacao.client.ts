@@ -1,5 +1,5 @@
 import axios, { AxiosInstance } from "axios";
-import { localizacao } from "@/model/Localizacao";
+import { localizacao } from "@/model/LocalizacaoModel";
 import { PageRequest } from "@/model/page/page-request";
 import { PageResponse } from "@/model/page/page-response";
 export class LocalizacaoClient {
