@@ -1,5 +1,5 @@
 import axios, { AxiosInstance } from "axios";
-import { localizacao } from "@/model/LocalizacaoModel";
+import { localizacaoModel } from "@/model/LocalizacaoModel";
 import { PageRequest } from "@/model/page/page-request";
 import { PageResponse } from "@/model/page/page-response";
 export class LocalizacaoClient {
@@ -12,15 +12,15 @@ export class LocalizacaoClient {
     });
   }
 
-  public async findById(id: number): Promise<localizacao> {
+  public async findById(id: number): Promise<localizacaoModel> {
     try {
-      return (await this.axiosClient.get<localizacao>(`/${id}`)).data;
+      return (await this.axiosClient.get<localizacaoModel>(`/${id}`)).data;
     } catch (error: any) {
       return Promise.reject(error.response);
     }
   }
 
-  public async cadastrar(cadastrar: localizacao): Promise<void> {
+  public async cadastrar(cadastrar: localizacaoModel): Promise<void> {
     try {
       return await this.axiosClient.post("/", cadastrar);
     } catch (error: any) {
@@ -28,7 +28,7 @@ export class LocalizacaoClient {
     }
   }
 
-  public async editar(editar: localizacao): Promise<void> {
+  public async editar(editar: localizacaoModel): Promise<void> {
     try {
       return (await this.axiosClient.put(`/${editar.id}`, editar)).data;
     } catch (error: any) {
@@ -36,7 +36,7 @@ export class LocalizacaoClient {
     }
   }
 
-  public async desativar(deasativar: localizacao): Promise<void> {
+  public async desativar(deasativar: localizacaoModel): Promise<void> {
     try {
       return (await this.axiosClient.put(`/desativar/${deasativar.id}`, deasativar))
         .data;
@@ -47,7 +47,7 @@ export class LocalizacaoClient {
 
   public async findByFiltrosPaginado(
     pageRequest: PageRequest
-  ): Promise<PageResponse<localizacao>> {
+  ): Promise<PageResponse<localizacaoModel>> {
     try {
       let requestPath = "";
 
@@ -58,7 +58,7 @@ export class LocalizacaoClient {
       },${pageRequest.direction}`;
 
       return (
-        await this.axiosClient.get<PageResponse<localizacao>>(requestPath, {
+        await this.axiosClient.get<PageResponse<localizacaoModel>>(requestPath, {
           params: { filtros: pageRequest.filter },
         })
       ).data;

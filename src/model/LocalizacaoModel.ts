@@ -4,5 +4,5 @@ export class localizacaoModel extends AbstractEntity{
     numero!:Number
     rua!:String
     cidade!:String
-    bairros!:String
+    bairro!:String
 }

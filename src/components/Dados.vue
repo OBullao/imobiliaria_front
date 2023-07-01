@@ -7,7 +7,7 @@
           <router-link
             type="button"
             class="btn btn-success"
-            to="/marca/formulario"
+            to="/propriedade/formulario"          
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -25,6 +25,7 @@
               />
             </svg>
           </router-link>
+          <!--form do bulla linha 10-->
         </div>
       </div>
     </div>
@@ -57,8 +58,6 @@
     </td>
     <td>
       <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-        <button type="button" class="btn btn-sm btn-warning">Editar</button>
-        <button type="button" class="btn btn-sm btn-danger">Excluir</button>
         <button type="button" class="btn btn-sm btn-info">info</button>
       </div>
     </td>
@@ -66,102 +65,29 @@
 </tbody>
 
 
-
-
-
-<tbody class="table-group-divider">
+<tbody v-for="item in List" :key="item.id" class="table-group-divider">
   <tr>
     <td>1</td>
     <td class="text-start">
       <img src="../assets/b58677ca-24f1-42f4-bcd6-1081f021a27a.jpeg" alt="Imagem" style="max-width: 100px; height: auto;" />
     </td>
-    <td class="text-start">Nome do Bairro</td>
-    <td class="text-start">Nome da Cidade</td>
-    <td class="text-start">Código do Proprietário</td>
+    <td class="text-start">{{item.localizacao.bairro}}</td>
+    <td class="text-start">{{item.localizacao.cidade}}</td>
+    <td class="text-start">{{item.proprietario.nome}}</td>
     <td>
-      <span class="badge text-bg-success">Ativo</span>
+      <span v-if="item.ativo" class="badge text-bg-success"> Ativo </span>
+      <span v-if="!item.ativo" class="badge text-bg-danger"> Inativo </span>
     </td>
     <td>
       <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-        <button type="button" class="btn btn-sm btn-warning">Editar</button>
-        <button type="button" class="btn btn-sm btn-danger">Excluir</button>
-        <button type="button" class="btn btn-sm btn-info">info</button>
+        <router-link type="button" class="btn btn-sm btn-info" 
+                      :to="{ name: 'dados-propriedade-adm-views', query: { id: item.id, form: 'info' } } "> 
+                    info 
+                  </router-link>
       </div>
     </td>
   </tr>
 </tbody>
-
-<tbody class="table-group-divider">
-  <tr>
-    <td>1</td>
-    <td class="text-start">
-      <img src="../assets/b58677ca-24f1-42f4-bcd6-1081f021a27a.jpeg" alt="Imagem" style="max-width: 100px; height: auto;" />
-    </td>
-    <td class="text-start">Nome do Bairro</td>
-    <td class="text-start">Nome da Cidade</td>
-    <td class="text-start">Código do Proprietário</td>
-    <td>
-      <span class="badge text-bg-success">Ativo</span>
-    </td>
-    <td>
-      <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-        <button type="button" class="btn btn-sm btn-warning">Editar</button>
-        <button type="button" class="btn btn-sm btn-danger">Excluir</button>
-        <button type="button" class="btn btn-sm btn-info">info</button>
-      </div>
-    </td>
-  </tr>
-</tbody>
-
-<tbody class="table-group-divider">
-  <tr>
-    <td>1</td>
-    <td class="text-start">
-      <img src="../assets/b58677ca-24f1-42f4-bcd6-1081f021a27a.jpeg" alt="Imagem" style="max-width: 100px; height: auto;" />
-    </td>
-    <td class="text-start">Nome do Bairro</td>
-    <td class="text-start">Nome da Cidade</td>
-    <td class="text-start">Código do Proprietário</td>
-    <td>
-      <span class="badge text-bg-success">Ativo</span>
-    </td>
-    <td>
-      <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-        <button type="button" class="btn btn-sm btn-warning">Editar</button>
-        <button type="button" class="btn btn-sm btn-danger">Excluir</button>
-        <button type="button" class="btn btn-sm btn-info">info</button>
-      </div>
-    </td>
-  </tr>
-</tbody>
-
-<tbody class="table-group-divider">
-  <tr>
-    <td>1</td>
-    <td class="text-start">
-      <img src="../assets/b58677ca-24f1-42f4-bcd6-1081f021a27a.jpeg" alt="Imagem" style="max-width: 100px; height: auto;" />
-    </td>
-    <td class="text-start">Nome do Bairro</td>
-    <td class="text-start">Nome da Cidade</td>
-    <td class="text-start">Código do Proprietário</td>
-    <td>
-      <span class="badge text-bg-danger">Ativo</span>
-    </td>
-    <td>
-      <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-        <button type="button" class="btn btn-sm btn-warning">Editar</button>
-        <button type="button" class="btn btn-sm btn-danger">Excluir</button>
-        <button type="button" class="btn btn-sm btn-info">info</button>
-      </div>
-    </td>
-  </tr>
-</tbody>
-
-
-
-
-
-
 
         </table>
       </div>
@@ -169,11 +95,32 @@
   </div>
 </template>
 
-<script>
-import { defineComponent } from "vue"; // Corrigido o import
+<script lang="ts">
+import { defineComponent } from 'vue';
+import PropriedadeClient from '@/client/Propriedade.client';
+import { PropriedadeModel } from '@/model/PropriedadeModel';
 
 export default defineComponent({
-  name: "Dados",
+  name: 'Lista',
+  data() {
+    return {
+      List: new Array<PropriedadeModel>()
+    };
+  },
+  mounted() {
+    this.findAll();
+  },
+  methods: {
+    findAll() {
+      PropriedadeClient.listaAll()
+        .then(success => {
+          this.List = success;
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    }
+  }
 });
 </script>
 <style scoped>
