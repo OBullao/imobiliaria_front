@@ -70,7 +70,91 @@
        </div>
       </div>
   </div>
+
+
+
+
+
+
+
+
+
+
+
+
+  teste aq
+
+
+
+
+<div class="col-6 text-container">
+  <td v-if="descricao"> 
+    <td>descricao</td>
+    <td>{{ descricao.descricao  }} </td>
+
+              <br>
+  </td>
+</div>
+
+
+
+
+
+
+
+
 </template>
+
+<script lang="ts">
+import { defineComponent } from 'vue';
+import { DescricaoModel } from '@/model/DescricaoModel';
+import {DescricaoClient} from '@/client/Descricao.client';
+
+
+export default defineComponent({
+  name: 'InfoAPs',
+  data(){
+    return{
+      descricao: new DescricaoModel(),
+      DescricaoClient: new DescricaoClient(),
+      mensagem: {
+      ativo: false as boolean,
+      titulo: "" as string,
+      mensagem: "" as string,
+      css: "" as string
+    }
+    }
+  },
+  computed:{
+    id(){
+      return this.$route.query.id
+    }
+  },
+  mounted() {
+      if(this.id !== undefined){
+        this.findbyId(Number(this.id));
+      }
+  },
+  methods: {
+    findbyId(id: number){
+      this.DescricaoClient.findById(id)
+        .then(sucess =>{
+          this.descricao = sucess;
+          
+        })
+      .catch(error =>{
+        this.mensagem.ativo = true;
+        this.mensagem.mensagem = error;
+        this.mensagem.titulo = "Error.";
+        this.mensagem.css = "alert alert-danger alert-dismissible fade show";
+      }
+      )
+    }
+  }
+})
+
+
+</script>
 
     
     <style scoped lang="scss">
