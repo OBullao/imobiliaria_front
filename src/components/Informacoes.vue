@@ -24,13 +24,6 @@
               <br>Rua Teste, avenida KKKKKK 204.
               <img src="..\imagens\Local.png" alt="Descrição da imagem" class="img-fluid" style="width: 500px; height: auto;">
             </div>
-    
-    
-    
-    
-    
-    
-
             <!--Das 9 partes divididas aqui tenho uma divisao em 6 partes-->
               <div class="col-6 Informacoes">
                 Informacoes sobre o apartemento:
