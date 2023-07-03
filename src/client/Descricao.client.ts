@@ -6,7 +6,7 @@ export class DescricaoClient {
 
   constructor() {
     this.axiosClient = axios.create({
-      baseURL: "http://localhost:8080/api/construcao",
+      baseURL: "http://localhost:8080/api/descricao",
       headers: { "Content-type": "application/json" },
     });
   }
@@ -17,6 +17,23 @@ export class DescricaoClient {
       return Promise.reject(error.response);
     }
   }
+
+  public  async listAll() : Promise<DescricaoModel[]>{
+    try{
+        return (await this.axiosClient.get<DescricaoModel[]> ('/lista')).data
+    }
+    catch(error: any){
+        return Promise.reject(error.response)
+    }
+}
+
+
+
+
+
+
+
+
   public async cadastrar(cadastrar: DescricaoModel): Promise<void> {
     try {
       return await this.axiosClient.post("/", cadastrar);
@@ -40,3 +57,4 @@ export class DescricaoClient {
     }
   }
 }
+export default new DescricaoClient;
