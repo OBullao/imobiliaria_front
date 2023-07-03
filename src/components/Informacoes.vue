@@ -16,21 +16,14 @@
             </div>
             <!--Das 9 partes divididas aqui tenho uma divisao em 6 partes-->
             <div class="col-6 text-container">
-              <tr v-for="desc in descricaoLista" :key="desc.id" scope="row">
-                <td>{{ desc.descricao }}</td>
-              </tr>
-           
-              
+              aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+              aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+              aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
               <br>
               <br>
-              Rua Teste, avenida KKKKKK 204.
-              <br>
+              <br>Rua Teste, avenida KKKKKK 204.
               <img src="..\imagens\Local.png" alt="Descrição da imagem" class="img-fluid" style="width: 500px; height: auto;">
-            
-            
             </div>
-  
-
             <!--Das 9 partes divididas aqui tenho uma divisao em 6 partes-->
               <div class="col-6 Informacoes">
                 Informacoes sobre o apartemento:
@@ -82,6 +75,21 @@
 
 
 
+  teste aq
+
+
+
+
+<div class="col-6 text-container">
+  <td v-if="descricao"> 
+    <td>descricao</td>
+    <td>{{ descricao.descricao  }} </td>
+
+              <br>
+  </td>
+</div>
+
+
 
 
 
@@ -93,40 +101,51 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import { DescricaoModel } from '@/model/DescricaoModel';
-import DescricaoClient from "@/client/Descricao.client"
+import {DescricaoClient} from '@/client/Descricao.client';
 
 
 export default defineComponent({
-    name: 'descricaoLista',
-
-    data(){
-      return{
-        descricaoLista: new Array<DescricaoModel>(),
-
-        
-      }
-    },
-    mounted(){
-      this.findAll();
-   
-      
-    },
-    methods: {
-
-       findAll() {
-          DescricaoClient.listAll()
-          .then(sucess => {
-              this.descricaoLista = sucess
-              console.log(this.descricaoLista)
-          })
-          .catch(error => {
-              console.log(error);
-          }); },  
-    
-  
+  name: 'InfoAPs',
+  data(){
+    return{
+      descricao: new DescricaoModel(),
+      DescricaoClient: new DescricaoClient(),
+      mensagem: {
+      ativo: false as boolean,
+      titulo: "" as string,
+      mensagem: "" as string,
+      css: "" as string
     }
-    
-  });
+    }
+  },
+  computed:{
+    id(){
+      return this.$route.query.id
+    }
+  },
+  mounted() {
+      if(this.id !== undefined){
+        this.findbyId(Number(this.id));
+      }
+  },
+  methods: {
+    findbyId(id: number){
+      this.DescricaoClient.findById(id)
+        .then(sucess =>{
+          this.descricao = sucess;
+          
+        })
+      .catch(error =>{
+        this.mensagem.ativo = true;
+        this.mensagem.mensagem = error;
+        this.mensagem.titulo = "Error.";
+        this.mensagem.css = "alert alert-danger alert-dismissible fade show";
+      }
+      )
+    }
+  }
+})
+
 
 </script>
 
