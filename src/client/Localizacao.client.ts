@@ -1,69 +1,56 @@
 import axios, { AxiosInstance } from "axios";
-import { localizacaoModel } from "@/model/LocalizacaoModel";
-import { PageRequest } from "@/model/page/page-request";
-import { PageResponse } from "@/model/page/page-response";
-export class LocalizacaoClient {
+import { LocalizacaoModel } from "@/model/LocalizacaoModel"
+
+class LocalizacaoClient {
   private axiosClient: AxiosInstance;
 
   constructor() {
     this.axiosClient = axios.create({
-      baseURL: "http://localhost:8080/api/localizacao",
-      headers: { "Content-type": "application/json" },
+      baseURL: 'http://localhost:8081/api/localizacao',
+      headers: { 'Content-type': 'application/json' }
     });
   }
-
-  public async findById(id: number): Promise<localizacaoModel> {
+  public async findById(id: number): Promise<LocalizacaoModel> {
     try {
-      return (await this.axiosClient.get<localizacaoModel>(`/${id}`)).data;
+      return (await this.axiosClient.get<LocalizacaoModel>(`/lista/id/${id}`)).data;
     } catch (error: any) {
       return Promise.reject(error.response);
     }
   }
 
-  public async cadastrar(cadastrar: localizacaoModel): Promise<void> {
+  public async listaAll(): Promise<any> {
     try {
-      return await this.axiosClient.post("/", cadastrar);
+      return (await this.axiosClient.get<LocalizacaoModel[]>(`/lista`)).data;
     } catch (error: any) {
       return Promise.reject(error.response);
     }
   }
 
-  public async editar(editar: localizacaoModel): Promise<void> {
+  public async cadastrar(cadastro: LocalizacaoModel): Promise<string> {
     try {
-      return (await this.axiosClient.put(`/${editar.id}`, editar)).data;
+      return (await this.axiosClient.post<string>(`/cadastrar`, cadastro)).data;
     } catch (error: any) {
       return Promise.reject(error.response);
     }
   }
 
-  public async desativar(deasativar: localizacaoModel): Promise<void> {
+  public async editar(id: number, editar: LocalizacaoModel): Promise<string> {
     try {
-      return (await this.axiosClient.put(`/desativar/${deasativar.id}`, deasativar))
-        .data;
+      return (await this.axiosClient.put<string>(`/${id}`, editar)).data;
     } catch (error: any) {
       return Promise.reject(error.response);
     }
   }
 
-  public async findByFiltrosPaginado(
-    pageRequest: PageRequest
-  ): Promise<PageResponse<localizacaoModel>> {
+  public async excluir(id: number): Promise<string> {
     try {
-      let requestPath = "";
-
-      requestPath += `?page=${pageRequest.currentPage}`;
-      requestPath += `&size=${pageRequest.pageSize}`;
-      requestPath += `&sort=${
-        pageRequest.sortField === undefined ? "" : pageRequest.sortField
-      },${pageRequest.direction}`;
-
-      return (
-        await this.axiosClient.get<PageResponse<localizacaoModel>>(requestPath, {
-          params: { filtros: pageRequest.filter },
-        })
-      ).data;
+      return (await this.axiosClient.delete<string>(`/delete/${id}`)).data;
     } catch (error: any) {
       return Promise.reject(error.response);
     }
   }
 }
+
+export default new LocalizacaoClient();
+
+

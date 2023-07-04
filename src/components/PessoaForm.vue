@@ -1,7 +1,7 @@
 <template>
 
     <div class="container">
-        <h1>Formulário</h1>
+        <h1>Formulárijjjo</h1>
         <form>
             <div class="form-group">
                 <label for="email">E-mail:</label>
