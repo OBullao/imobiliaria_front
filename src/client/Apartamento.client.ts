@@ -37,7 +37,7 @@ export class ApartamentosClient {
 
   public async cadastrar(cadastrar: Apartamento): Promise<void> {
     try {
-      return await this.axiosClient.post("/", cadastrar);
+      return await this.axiosClient.post("/cadastrar", cadastrar);
     } catch (error: any) {
       return Promise.reject(error.response);
     }
