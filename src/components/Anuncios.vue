@@ -25,20 +25,22 @@
           </div>
         </div>
       </div>
-      
-
-
+    
       <div v-for="item in List" :key="item.id" class="col mb-2">
         <div class="card h-100 card-hover fundo">
-          <div class="position-relative">
-            <router-link type="button" class="btn btn-sm btn-info" 
-                      :to="{ name: 'dados-anuncio-views', query: { id: item.id, form: 'anuncio' } } ">                   
-            <img
-              src="{{item.descricao.fotos}}"
-              class="card-img-top"
-              alt="..."  height="100%"
-            />
-          </router-link>
+          <div class="foto position-relative">
+            <router-link
+  type="button"
+  class="btn btn-sm btn-info"
+  :to="{ name: 'dados-anuncio-views', query: { id: item.id, form: 'anuncio' } }"
+>
+  <img
+    :src="require('@/assets/'+item.descricao.fotos)"
+    class="card-img-top"
+    alt="..."
+    height="100"
+  />
+</router-link>
 
           </div>
           <div class="fundo card-body text-start">
@@ -134,5 +136,8 @@ export default defineComponent({
 
 img {
   border-radius: 2%;
+}
+.foto{
+  min-height: 25vw;
 }
 </style>

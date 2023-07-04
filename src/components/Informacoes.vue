@@ -16,6 +16,7 @@
             </div>
             <!--Das 9 partes divididas aqui tenho uma divisao em 6 partes-->
             <div class="col-6 text-container">
+
               <tr v-for="desc in descricaoLista"  style="text-align: left;">
                 {{ desc.descricao }}
               </tr>
@@ -25,7 +26,6 @@
               {{ loc.cep }}, {{ loc.cidade }}, {{ loc.bairro }}, {{ loc.rua }}, {{ loc.numero }}.
               </span>
               <img src="..\imagens\Local.png" alt="Descrição da imagem" class="img-fluid" style="width: 500px; height: auto;">
-
             </div>
             <!--Das 9 partes divididas aqui tenho uma divisao em 6 partes-->
               <div v-for="cons in construcaoLista"  class="col-6 infos">
@@ -87,6 +87,21 @@
 
 
 
+  teste aq
+
+
+
+
+<div class="col-6 text-container">
+  <td v-if="descricao"> 
+    <td>descricao</td>
+    <td>{{ descricao.descricao  }} </td>
+
+              <br>
+  </td>
+</div>
+
+
 
 
 
@@ -98,6 +113,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import { DescricaoModel } from '@/model/DescricaoModel';
+
 import DescricaoClient from "@/client/Descricao.client"
 import  LocalizacaoClient  from '@/client/Localizacao.client';
 import { localizacaoModel } from '@/model/LocalizacaoModel';
@@ -184,6 +200,7 @@ export default defineComponent({
     }
 
   );
+
 
 </script>
 
