@@ -6,7 +6,7 @@ class LocalizacaoClient {
 
   constructor() {
     this.axiosClient = axios.create({
-      baseURL: 'http://localhost:8081/api/localizacaogit ad',
+      baseURL: 'http://localhost:8081/api/localizacao',
       headers: { 'Content-type': 'application/json' }
     });
   }
