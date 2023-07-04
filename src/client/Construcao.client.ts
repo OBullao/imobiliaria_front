@@ -14,7 +14,7 @@ export class ConstrucaoClient {
 
   public async findById(id: number): Promise<ConstrucaoModel> {
     try {
-      return (await this.axiosClient.get<ConstrucaoModel>(`/${id}`)).data;
+      return (await this.axiosClient.get<ConstrucaoModel>(`/lista/id/${id}`)).data;
     } catch (error: any) {
       return Promise.reject(error.response);
     }

@@ -20,7 +20,7 @@ export class ApartamentosClient {
   }
   public async findById(id: number): Promise<Apartamento> {
     try {
-      return (await this.axiosClient.get<Apartamento>(`/${id}`)).data;
+      return (await this.axiosClient.get<Apartamento>(`/lista/id/${id}`)).data;
     } catch (error: any) {
       return Promise.reject(error.response);
     }
