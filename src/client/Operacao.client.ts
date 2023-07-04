@@ -1,18 +1,18 @@
 import axios, { AxiosInstance } from "axios";
-import { LocalizacaoModel } from "@/model/LocalizacaoModel"
+import { PropriedadeModel } from "@/model/PropriedadeModel";
 
-class LocalizacaoClient {
+class PropriedadeClient {
   private axiosClient: AxiosInstance;
 
   constructor() {
     this.axiosClient = axios.create({
-      baseURL: 'http://localhost:8081/api/localizacao',
+      baseURL: 'http://localhost:8081/api/propriedade',
       headers: { 'Content-type': 'application/json' }
     });
   }
-  public async findById(id: number): Promise<LocalizacaoModel> {
+  public async findById(id: number): Promise<PropriedadeModel> {
     try {
-      return (await this.axiosClient.get<LocalizacaoModel>(`/lista/id/${id}`)).data;
+      return (await this.axiosClient.get<PropriedadeModel>(`/lista/id/${id}`)).data;
     } catch (error: any) {
       return Promise.reject(error.response);
     }
@@ -20,13 +20,13 @@ class LocalizacaoClient {
 
   public async listaAll(): Promise<any> {
     try {
-      return (await this.axiosClient.get<LocalizacaoModel[]>(`/lista`)).data;
+      return (await this.axiosClient.get<PropriedadeModel[]>(`/lista`)).data;
     } catch (error: any) {
       return Promise.reject(error.response);
     }
   }
 
-  public async cadastrar(cadastro: LocalizacaoModel): Promise<string> {
+  public async cadastrar(cadastro: PropriedadeModel): Promise<string> {
     try {
       return (await this.axiosClient.post<string>(`/cadastrar`, cadastro)).data;
     } catch (error: any) {
@@ -34,7 +34,7 @@ class LocalizacaoClient {
     }
   }
 
-  public async editar(id: number, editar: LocalizacaoModel): Promise<string> {
+  public async editar(id: number, editar: PropriedadeModel): Promise<string> {
     try {
       return (await this.axiosClient.put<string>(`/${id}`, editar)).data;
     } catch (error: any) {
@@ -51,6 +51,6 @@ class LocalizacaoClient {
   }
 }
 
-export default new LocalizacaoClient();
+export default new PropriedadeClient();
 
 
