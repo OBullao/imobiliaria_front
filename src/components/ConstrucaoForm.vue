@@ -4,8 +4,11 @@
       <form>
         <div class="form-group">
           <label for="tipo">Tipo:</label>
-          <input type="text" ref="tipo" class="form-control" id="tipo" placeholder="Digite o tipo" required v-model="construcao.tipo">
+          <select v-model="construcao.tipo" class="form-select" aria-label="Default select example">
+          <option v-for="tipoCons in tipoEnum" :key="tipoCons" :value="tipoCons"   selected>{{tipoCons}}</option>
+        </select>
         </div>
+
         <div class="form-group">
           <label for="quartos">Quartos:</label>
           <input type="number" ref="quartos" class="form-control" id="quartos" placeholder="Digite o número de quartos" required v-model="construcao.quartos">
@@ -27,13 +30,16 @@
 
         <div class="form-group">
           <label for="apartamento">Apartamento:</label>
-          <select v-model="construcao.apartamento" class="form-select" aria-label="Default select example">
-            <option v-for="itemAp in apartamentoFiltrado" :key="itemAp.id" :value="itemAp" selected>
-            {{ itemAp.nome }}</option>
-            <!-- Adicione outras opções de apartamento aqui -->
+          <select class="form-select" v-model="construcao.apartamento">
+            <option v-for="aps in apartamentoList" :key="aps.id" :value="aps">
+            {{ aps.nome }}</option>
           </select>
         </div>
-        <button type="submit" class="btn btn-primary">Enviar</button>
+        <button type="submit" class="btn btn-primary" @click="onClickCadastrar">Enviar</button>
+
+
+
+
       
       
       
@@ -83,6 +89,8 @@ import { RouterLink } from "vue-router";
 import ConstrucaoClient from "@/client/Construcao.client";
 import { ConstrucaoModel } from "@/model/ConstrucaoModel";
 import { Apartamento } from "@/model/Apartamento";
+import ApartamentoClient from "@/client/Apartamento.client";
+import { Tipo } from "@/model/Tipo";
 
 export default defineComponent({
   name: "ConstrucaoForm",
@@ -90,7 +98,9 @@ export default defineComponent({
   data(){
     return{
         construcao: new ConstrucaoModel(),
-        apartamentoLista: [] as Apartamento[]
+        apartamentoLista: [] as Apartamento[],
+        apartamentoList:[],
+        tipoEnum: Tipo,
     }
   },
   computed: {
@@ -110,6 +120,7 @@ export default defineComponent({
     if(this.id !== undefined){
         this.findById(Number(this.id))
     }
+    this.listarApartamento();
   },
   methods:{
     findById(id: number){
@@ -127,6 +138,7 @@ export default defineComponent({
           this.construcao = new ConstrucaoModel();
         })
         .catch(error => {
+          console.log(error);
         });
     },
 
@@ -146,7 +158,23 @@ export default defineComponent({
         })
         .catch(error => {
         });
+    },
+
+    listarApartamento() {
+      ApartamentoClient.listAll()
+        .then(success => {
+          this.apartamentoList = success;
+          console.log(this.apartamentoList);
+        })
+        .catch(error => {
+          console.log(error);
+        });
     }
+    
+
+
+
+       
   }
 
 });

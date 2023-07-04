@@ -19,18 +19,30 @@ export class ConstrucaoClient {
       return Promise.reject(error.response);
     }
   }
-  public  async listAll() : Promise<ConstrucaoModel[]>{
-    try{
-        return (await this.axiosClient.get<ConstrucaoModel[]> ('/lista')).data
-    }
-    catch(error: any){
-        return Promise.reject(error.response)
-    }
+
+
+public async listAll(): Promise<any> {
+  try {
+    return (await this.axiosClient.get<ConstrucaoModel[]>(`/lista`)).data;
+  } catch (error: any) {
+    return Promise.reject(error.response);
+  }
 }
+
+
+
+
+
+
+
+
+
+
+
 
   public async cadastrar(cadastrar: ConstrucaoModel): Promise<void> {
     try {
-      return await this.axiosClient.post("/", cadastrar);
+      return await this.axiosClient.post("/cadastrar", cadastrar);
     } catch (error: any) {
       return Promise.reject(error.response);
     }

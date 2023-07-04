@@ -26,14 +26,13 @@ export class ApartamentosClient {
     }
   }
 
-  public  async listAll() : Promise<Apartamento[]>{
-    try{
-        return (await this.axiosClient.get<Apartamento[]> ('/lista')).data
+  public async listAll(): Promise<any> {
+    try {
+      return (await this.axiosClient.get<Apartamento[]>(`/lista`)).data;
+    } catch (error: any) {
+      return Promise.reject(error.response);
     }
-    catch(error: any){
-        return Promise.reject(error.response)
-    }
-}
+  }
 
   public async cadastrar(cadastrar: Apartamento): Promise<void> {
     try {
