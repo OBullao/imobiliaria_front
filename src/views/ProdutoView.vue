@@ -2,6 +2,8 @@
     <Headers/>
    <Carousei/>
     <h1>aaaaa</h1>
+    <CompradorForm/>
+    <H1>separar</H1>
     <PessoaForm/>
     <H1>separar</H1>
     <ApartamentoForm/>
@@ -29,6 +31,7 @@ import LocalizacaoForm from '../components/LocalizacaoForm.vue'
 import ConstrucaoForm from '../components/ConstrucaoForm.vue'
 import PropriedadeForm from '../components/propriedadeForm.vue'
 import OperacaoForm from '../components/OperacaoForm.vue'
+import CompradorForm from '../components/CompradorForm.vue'
 
 
 
@@ -43,7 +46,8 @@ import OperacaoForm from '../components/OperacaoForm.vue'
        LocalizacaoForm,
        ConstrucaoForm,
        PropriedadeForm,
-       OperacaoForm
+       OperacaoForm,
+       CompradorForm
      },
 })
 export default class HomeView extends Vue {
