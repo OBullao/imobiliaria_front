@@ -20,6 +20,15 @@ export class LocalizacaoClient {
     }
   }
 
+  public  async listAll() : Promise<localizacaoModel[]>{
+    try{
+        return (await this.axiosClient.get<localizacaoModel[]> ('/lista')).data
+    }
+    catch(error: any){
+        return Promise.reject(error.response)
+    }
+}
+
   public async cadastrar(cadastrar: localizacaoModel): Promise<void> {
     try {
       return await this.axiosClient.post("/", cadastrar);
@@ -67,3 +76,4 @@ export class LocalizacaoClient {
     }
   }
 }
+export default new LocalizacaoClient;
