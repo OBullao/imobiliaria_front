@@ -19,6 +19,14 @@ export class ConstrucaoClient {
       return Promise.reject(error.response);
     }
   }
+  public  async listAll() : Promise<ConstrucaoModel[]>{
+    try{
+        return (await this.axiosClient.get<ConstrucaoModel[]> ('/lista')).data
+    }
+    catch(error: any){
+        return Promise.reject(error.response)
+    }
+}
 
   public async cadastrar(cadastrar: ConstrucaoModel): Promise<void> {
     try {
@@ -67,3 +75,4 @@ export class ConstrucaoClient {
     }
   }
 }
+export default new ConstrucaoClient;
