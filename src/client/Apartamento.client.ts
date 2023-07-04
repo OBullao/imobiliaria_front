@@ -7,7 +7,7 @@ export class ApartamentosClient {
 
   constructor() {
     this.axiosClient = axios.create({
-      baseURL: "http://localhost:8080/api/apartamento",
+      baseURL: "http://localhost:8081/api/apartamento",
       headers: { "Content-type": "application/json" },
     });
   }
@@ -26,14 +26,13 @@ export class ApartamentosClient {
     }
   }
 
-  public  async listAll() : Promise<Apartamento[]>{
-    try{
-        return (await this.axiosClient.get<Apartamento[]> ('/lista')).data
+  public async listAll(): Promise<any> {
+    try {
+      return (await this.axiosClient.get<Apartamento[]>(`/lista`)).data;
+    } catch (error: any) {
+      return Promise.reject(error.response);
     }
-    catch(error: any){
-        return Promise.reject(error.response)
-    }
-}
+  }
 
   public async cadastrar(cadastrar: Apartamento): Promise<void> {
     try {
@@ -90,4 +89,6 @@ export class ApartamentosClient {
       return Promise.reject(error.response);
     }
   }
-}*/
+}
+export default new ApartamentosClient();
+

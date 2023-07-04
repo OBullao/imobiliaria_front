@@ -7,7 +7,7 @@ export class ConstrucaoClient {
 
   constructor() {
     this.axiosClient = axios.create({
-      baseURL: "http://localhost:8080/api/construcao",
+      baseURL: "http://localhost:8081/api/construcao",
       headers: { "Content-type": "application/json" },
     });
   }
@@ -19,39 +19,53 @@ export class ConstrucaoClient {
       return Promise.reject(error.response);
     }
   }
-  public  async listAll() : Promise<ConstrucaoModel[]>{
-    try{
-        return (await this.axiosClient.get<ConstrucaoModel[]> ('/lista')).data
-    }
-    catch(error: any){
-        return Promise.reject(error.response)
-    }
+
+
+public async listAll(): Promise<any> {
+  try {
+    return (await this.axiosClient.get<ConstrucaoModel[]>(`/lista`)).data;
+  } catch (error: any) {
+    return Promise.reject(error.response);
+  }
 }
+
+
+
+
+
+
+
+
+
+
+
 
   public async cadastrar(cadastrar: ConstrucaoModel): Promise<void> {
     try {
-      return await this.axiosClient.post("/", cadastrar);
+      return await this.axiosClient.post("/cadastrar", cadastrar);
     } catch (error: any) {
       return Promise.reject(error.response);
     }
   }
 
-  public async editar(editar: ConstrucaoModel): Promise<void> {
+  public async editar (id: Number, construcao: ConstrucaoModel) :Promise<string>{
     try {
-      return (await this.axiosClient.put(`/${editar.id}`, editar)).data;
+        return (await this.axiosClient.put<string>(`/${id}`, construcao)).data
+        
     } catch (error: any) {
-      return Promise.reject(error.response);
+        return Promise.reject(error.response)   
     }
+}
+  public async desativar(id:Number): Promise<string> {
+    try{
+      return (await this.axiosClient.delete<string>(`/${id}`)).data
   }
+  catch(error:any)
+  {
+      return Promise.reject(error.response)
 
-  public async desativar(deasativar: ConstrucaoModel): Promise<void> {
-    try {
-      return (await this.axiosClient.put(`/desativar/${deasativar.id}`, deasativar))
-        .data;
-    } catch (error: any) {
-      return Promise.reject(error.response);
-    }
   }
+}
 
   public async findByFiltrosPaginado(
     pageRequest: PageRequest
