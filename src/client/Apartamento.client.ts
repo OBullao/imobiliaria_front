@@ -1,4 +1,4 @@
-/*import axios, { AxiosInstance } from "axios";
+import axios, { AxiosInstance } from "axios";
 import { Apartamento } from "@/model/Apartamento";
 import { PageRequest } from "@/model/page/page-request";
 import { PageResponse } from "@/model/page/page-response";

@@ -1,4 +1,4 @@
-/*import axios, { AxiosInstance } from "axios";
+import axios, { AxiosInstance } from "axios";
 import { ConstrucaoModel } from "@/model/ConstrucaoModel";
 import { PageRequest } from "@/model/page/page-request";
 import { PageResponse } from "@/model/page/page-response";
@@ -89,4 +89,4 @@ public async listAll(): Promise<any> {
     }
   }
 }
-export default new ConstrucaoClient;*/
+export default new ConstrucaoClient;

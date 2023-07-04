@@ -63,7 +63,6 @@ export default class HomeView extends Vue {
 .imgfundo{
 width: 100vw;
 height: 60vh;
-blur(1000px);
 margin-top: -2.7vw;
 
 }
