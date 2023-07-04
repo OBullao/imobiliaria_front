@@ -106,7 +106,45 @@ export default defineComponent({
           this.mensagem.titulo = "Erro. ";
           this.mensagem.css = "alert alert-danger alert-dismissible fade show";
         });
-    },   
+    }
   }
 });
 </script>
+
+/*,onClickEditar() {
+    if (this.comprador.id) {
+      CompradorClient.editar(this.comprador.id, this.comprador)
+        .then(success => {
+          this.comprador = new CompradorModel();
+          this.mensagem.ativo = true;
+          this.mensagem.mensagem = success;
+          this.mensagem.titulo = "Parabéns. ";
+          this.mensagem.css = "alert alert-success alert-dismissible fade show";
+        })
+        .catch(error => {
+          this.mensagem.ativo = true;
+          this.mensagem.mensagem = error;
+          this.mensagem.titulo = "Erro. ";
+          this.mensagem.css = "alert alert-danger alert-dismissible fade show";
+        });
+    } else {
+      console.error("ID da comprador indefinido. Não é possível editar.");
+    }
+  },
+      onClickExcluir() {
+    if (this.comprador.id) {
+      CompradorClient.excluir(this.comprador.id)
+        .then(success => {
+          this.comprador = new CompradorModel();
+          this.$router.push({ name: 'comprador-lista-view' });
+        })
+        .catch(error => {
+          this.mensagem.ativo = true;
+          this.mensagem.mensagem = error;
+          this.mensagem.titulo = "Erro. ";
+          this.mensagem.css = "alert alert-danger alert-dismissible fade show";
+        });
+    } else {
+      console.error("ID da marcompradorca indefinido. Não é possível excluir.");
+    }
+      }    */

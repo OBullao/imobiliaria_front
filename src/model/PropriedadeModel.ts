@@ -4,11 +4,11 @@ import { DescricaoModel } from "./DescricaoModel";
 import { localizacaoModel } from "./LocalizacaoModel";
 import { ProprietarioModelo } from "./ProprietarioModel";
 import { StatusModelo } from "./StatusModel";
-import { VendedorModelo } from "./VendedorModel";
+import { VendedorModel } from "./VendedorModel";
 
 export class PropriedadeModel extends AbstractEntity{
     proprietario!:ProprietarioModelo
-    vendedor!:VendedorModelo
+    vendedor!:VendedorModel
     localizacao!:localizacaoModel
     largura!:Number
     comprimento!:Number
