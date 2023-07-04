@@ -6,19 +6,19 @@ class LocalizacaoClient {
 
   constructor() {
     this.axiosClient = axios.create({
-      baseURL: 'http://localhost:8081/api/localizacao',
+      baseURL: 'http://localhost:8081/api/localizacaogit ad',
       headers: { 'Content-type': 'application/json' }
     });
   }
   public async findById(id: number): Promise<LocalizacaoModel> {
     try {
-      return (await this.axiosClient.get<localizacaoModel>(`/${id}`)).data;
+      return (await this.axiosClient.get<LocalizacaoModel>(`/lista/id/${id}`)).data;
     } catch (error: any) {
       return Promise.reject(error.response);
     }
   }
 
-  public async cadastrar(cadastrar: localizacaoModel): Promise<void> {
+  public async listaAll(): Promise<any> {
     try {
       return (await this.axiosClient.get<LocalizacaoModel[]>(`/lista`)).data;
     } catch (error: any) {
@@ -50,3 +50,7 @@ class LocalizacaoClient {
     }
   }
 }
+
+export default new LocalizacaoClient();
+
+
