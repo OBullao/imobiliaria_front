@@ -12,7 +12,7 @@ export class DescricaoClient {
   }
   public async findById(id: number): Promise<DescricaoModel> {
     try {
-      return (await this.axiosClient.get<DescricaoModel>(`/${id}`)).data;
+      return (await this.axiosClient.get<DescricaoModel>("",{params:{id}})).data
     } catch (error: any) {
       return Promise.reject(error.response);
     }

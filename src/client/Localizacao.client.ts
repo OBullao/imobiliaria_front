@@ -14,7 +14,7 @@ export class LocalizacaoClient {
 
   public async findById(id: number): Promise<localizacaoModel> {
     try {
-      return (await this.axiosClient.get<localizacaoModel>(`/${id}`)).data;
+      return (await this.axiosClient.get<localizacaoModel>(`/lista/id/${id}`)).data;
     } catch (error: any) {
       return Promise.reject(error.response);
     }
