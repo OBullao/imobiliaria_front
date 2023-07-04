@@ -26,17 +26,17 @@
         </div>
       </div>
     
-      <div v-for="item in List" :key="item.id" class="col mb-2">
+      <div v-for="item in List" :key="item.id" class="btn:hover">
         <div class="card h-100 card-hover fundo">
-          <div class="foto position-relative">
+          <div class=" position-relative">
             <router-link
   type="button"
-  class="btn btn-sm btn-info"
+  class=""
   :to="{ name: 'dados-anuncio-views', query: { id: item.id, form: 'anuncio' } }"
 >
-  <img
+  <img 
     :src="require('@/assets/'+item.descricao.fotos)"
-    class="card-img-top"
+    class="card-img-top imgapi"
     alt="..."
     height="100"
   />
@@ -99,7 +99,7 @@ export default defineComponent({
 <style scoped>
 .card-hover:hover {
   transform: scale(1.04);
-  background-color: aqua;
+  
 }
 
 .mb-2 {
@@ -113,7 +113,7 @@ export default defineComponent({
 
 .card {
   border: none;
-  border-radius: 5%;
+  border-radius: 1vh;
   overflow: hidden; /* Adicionado overflow: hidden */
   box-shadow: 1px 1px 6px rgb(88, 88, 88);
 }
@@ -137,7 +137,10 @@ export default defineComponent({
 img {
   border-radius: 2%;
 }
-.foto{
-  min-height: 25v;
+
+.imgapi{
+
+min-height: 25vh;
+min-width: 21vw;
 }
 </style>
