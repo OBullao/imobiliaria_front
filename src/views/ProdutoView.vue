@@ -61,6 +61,8 @@ import ProprietarioForm from '../components/ProprietarioForm.vue'
 export default class HomeView extends Vue {
 }
 </script>
-
+.h1 {
+  display: flex;
+}
 <style lang="scss">
 </style>
