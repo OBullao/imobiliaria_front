@@ -1,4 +1,4 @@
 import { AbstractPessoa } from "./AbstractPessoa";
-export class ProprietarioModelo extends AbstractPessoa{
+export class ProprietarioModel extends AbstractPessoa{
     documento!:String
 }

@@ -6,6 +6,8 @@
     <H1>separar</H1>
     <VendedorForm/>
     <H1>separar</H1>
+    <ProprietarioForm/>
+    <H1>separar</H1>
     <PessoaForm/>
     <H1>separar</H1>
     <ApartamentoForm/>
@@ -35,6 +37,7 @@ import PropriedadeForm from '../components/propriedadeForm.vue'
 import OperacaoForm from '../components/OperacaoForm.vue'
 import CompradorForm from '../components/CompradorForm.vue'
 import VendedorForm from '../components/VendedorForm.vue'
+import ProprietarioForm from '../components/ProprietarioForm.vue'
 
 
 
@@ -51,7 +54,8 @@ import VendedorForm from '../components/VendedorForm.vue'
        PropriedadeForm,
        OperacaoForm,
        CompradorForm,
-       VendedorForm
+       VendedorForm,
+       ProprietarioForm
      },
 })
 export default class HomeView extends Vue {
