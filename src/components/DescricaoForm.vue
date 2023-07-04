@@ -21,7 +21,12 @@
         <input type="text" class="form-control" :disabled="form === 'excluir' ? disabled : false" v-model="descricao.fotos">
       </div>
 
-      <button type="submit" class="btn btn-primary">Enviar</button>
+      <div class="d-grid gap-1">
+        
+        <button v-if="form === undefined" type="button" class="btn btn-success" @click="onClickCadastrar()">Cadastrar</button>
+        <button v-if="form === 'editar'" type="button" class="btn btn-warning" @click="onClickEditar()">Editar</button>
+        <button v-if="form === 'excluir'" type="button" class="btn btn-danger" @click="onClickExcluir()">Excluir</button>
+      </div>
     </form>
   </div>
 </template>
