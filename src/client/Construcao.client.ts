@@ -14,11 +14,19 @@ export class ConstrucaoClient {
 
   public async findById(id: number): Promise<ConstrucaoModel> {
     try {
-      return (await this.axiosClient.get<ConstrucaoModel>(`/${id}`)).data;
+      return (await this.axiosClient.get<ConstrucaoModel>(`/lista/id/${id}`)).data;
     } catch (error: any) {
       return Promise.reject(error.response);
     }
   }
+  public  async listAll() : Promise<ConstrucaoModel[]>{
+    try{
+        return (await this.axiosClient.get<ConstrucaoModel[]> ('/lista')).data
+    }
+    catch(error: any){
+        return Promise.reject(error.response)
+    }
+}
 
   public async cadastrar(cadastrar: ConstrucaoModel): Promise<void> {
     try {
@@ -67,3 +75,4 @@ export class ConstrucaoClient {
     }
   }
 }
+export default new ConstrucaoClient;

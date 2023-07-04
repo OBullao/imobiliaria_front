@@ -31,7 +31,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/dadosDeAnuncio',
     name: 'dados-anuncio-views',
-    component: () => import(/* webpackChunkName: "dados" */ '../views/AboutView.vue')
+    component: () => import(/* webpackChunkName: "dados" */ '../views/DadosView.vue')
   },
   {
     path: '/dadosDePropriedade',

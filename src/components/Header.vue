@@ -78,7 +78,7 @@ a {
   height: 2px;
   background-color: rgb(255, 255, 255);
   transform: scaleX(0);
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.1s ease-in-out;
 }
 
 a:hover::after {

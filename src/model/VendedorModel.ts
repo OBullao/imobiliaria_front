@@ -1,4 +1,3 @@
 import { AbstractPessoa } from "./AbstractPessoa";
-export class VendedorModelo extends AbstractPessoa{
-    documento!:String
+export class VendedorModel extends AbstractPessoa{
 }

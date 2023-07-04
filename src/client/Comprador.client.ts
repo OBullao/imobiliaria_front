@@ -1,19 +1,18 @@
 import axios, { AxiosInstance } from "axios";
-import { DescricaoModel } from "@/model/DescricaoModel";
+import { CompradorModel } from "@/model/CompradorModel";
 
-class DescricaoClient {
+class CompradorClient {
   private axiosClient: AxiosInstance;
 
   constructor() {
     this.axiosClient = axios.create({
-      baseURL: 'http://localhost:8081/api/descricao',
+      baseURL: 'http://localhost:8081/api/comprador',
       headers: { 'Content-type': 'application/json' }
     });
   }
-  public async findById(id: number): Promise<DescricaoModel> {
+  public async findById(id: number): Promise<CompradorModel> {
     try {
-      return (await this.axiosClient.get<DescricaoModel>(`/lista/id/${id}`)).data;
-
+      return (await this.axiosClient.get<CompradorModel>(`?id=${id}`)).data;
     } catch (error: any) {
       return Promise.reject(error.response);
     }
@@ -21,13 +20,13 @@ class DescricaoClient {
 
   public async listaAll(): Promise<any> {
     try {
-      return (await this.axiosClient.get<DescricaoModel[]>(`/lista`)).data;
+      return (await this.axiosClient.get<CompradorModel[]>(`/lista`)).data;
     } catch (error: any) {
       return Promise.reject(error.response);
     }
   }
 
-  public async cadastrar(cadastro: DescricaoModel): Promise<string> {
+  public async cadastrar(cadastro: CompradorModel): Promise<string> {
     try {
       return (await this.axiosClient.post<string>(``, cadastro)).data;
     } catch (error: any) {
@@ -35,7 +34,7 @@ class DescricaoClient {
     }
   }
 
-  public async editar(id: number, editar: DescricaoModel): Promise<string> {
+  public async editar(id: number, editar: CompradorModel): Promise<string> {
     try {
       return (await this.axiosClient.put<string>(`/${id}`, editar)).data;
     } catch (error: any) {
@@ -45,13 +44,13 @@ class DescricaoClient {
 
   public async excluir(id: number): Promise<string> {
     try {
-      return (await this.axiosClient.delete<string>(`/delete/${id}`)).data;
+      return (await this.axiosClient.delete<string>(`/${id}`)).data;
     } catch (error: any) {
       return Promise.reject(error.response);
     }
   }
 }
 
-export default new DescricaoClient();
+export default new CompradorClient();
 
 
