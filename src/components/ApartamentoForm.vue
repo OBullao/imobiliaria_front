@@ -4,23 +4,42 @@
         <form>
             <div class="form-group">
                 <label for="andar">Andar:</label>
-                <input type="number" class="form-control" id="andar" placeholder="Digite o andar" required>
+                <input type="number" class="form-control" id="andar" placeholder="Digite o andar" required v-model="apartamento.andar">
             </div>
             <div class="form-group">
                 <label for="nome">Nome do apartamento:</label>
-                <input type="text" class="form-control" id="nome" placeholder="Digite o nome" required>
+                <input type="text" class="form-control" id="nome" placeholder="Digite o nome" required v-model="apartamento.nome">
             </div>
             <div class="form-group">
                 <label for="interphone">Numero do Interfone:</label>
-                <input type="number" class="form-control" id="interphone" placeholder="Digite o número do interfone" required>
+                <input type="number" class="form-control" id="interphone" placeholder="Digite o número do interfone" required v-model="apartamento.interphone">
             </div>
             <div class="form-group">
                 <label for="estacionamento">Vagas de Estacionamento:</label>
-                <input type="number" class="form-control" id="estacionamento" placeholder="Digite o número de vagas de estacionamento" required>
+                <input type="number" class="form-control" id="estacionamento" placeholder="Digite o número de vagas de estacionamento" required v-model="apartamento.estacionamento">
             </div>
-            <button type="submit" class="btn btn-primary">Enviar</button>
+            <button type="submit" class="btn btn-primary" @click="onClickCadastrar">Enviar</button>
         </form>
     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   </template>
   
   <script lang="ts">
