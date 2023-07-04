@@ -43,23 +43,31 @@ export class ApartamentosClient {
     }
   }
 
-  public async editar(editar: Apartamento): Promise<void> {
+  public async editar (id: Number, apartamento: Apartamento) :Promise<string>{
     try {
-      return (await this.axiosClient.put(`/${editar.id}`, editar)).data;
+        return (await this.axiosClient.put<string>(`/${id}`, apartamento)).data
+        
     } catch (error: any) {
-      return Promise.reject(error.response);
+        return Promise.reject(error.response)   
     }
-  }
+}
 
-  public async desativar(deasativar: Apartamento): Promise<void> {
-    try {
-      return (
-        await this.axiosClient.put(`/desativar/${deasativar.id}`, deasativar)
-      ).data;
-    } catch (error: any) {
-      return Promise.reject(error.response);
-    }
+
+
+
+
+
+
+  public async desativar(id:Number): Promise<string> {
+    try{
+      return (await this.axiosClient.delete<string>(`/${id}`)).data
   }
+  catch(error:any)
+  {
+      return Promise.reject(error.response)
+
+  }
+}
 
   public async findByFiltrosPaginado(
     pageRequest: PageRequest
@@ -83,4 +91,3 @@ export class ApartamentosClient {
     }
   }
 }
-export default new ApartamentosClient;

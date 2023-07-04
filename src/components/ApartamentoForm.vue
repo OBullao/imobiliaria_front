@@ -3,34 +3,15 @@
         <h1>Formulário - Apartamento</h1>
         <form>
             <div class="form-group">
-                <label for="id">ID:</label>
-                <input type="number" class="form-control" id="id" placeholder="Digite o ID" required>
-            </div>
-            <div class="form-group">
-                <label for="cadastro">Data de Cadastro:</label>
-                <input type="datetime-local" class="form-control" id="cadastro" required>
-            </div>
-            <div class="form-group">
-                <label for="edicao">Data de Edição:</label>
-                <input type="datetime-local" class="form-control" id="edicao">
-            </div>
-            <div class="form-group">
-                <label for="ativo">Ativo:</label>
-                <select class="form-control" id="ativo">
-                    <option value="true">Sim</option>
-                    <option value="false">Não</option>
-                </select>
-            </div>
-            <div class="form-group">
                 <label for="andar">Andar:</label>
                 <input type="number" class="form-control" id="andar" placeholder="Digite o andar" required>
             </div>
             <div class="form-group">
-                <label for="nome">Nome:</label>
+                <label for="nome">Nome do apartamento:</label>
                 <input type="text" class="form-control" id="nome" placeholder="Digite o nome" required>
             </div>
             <div class="form-group">
-                <label for="interphone">Interfone:</label>
+                <label for="interphone">Numero do Interfone:</label>
                 <input type="number" class="form-control" id="interphone" placeholder="Digite o número do interfone" required>
             </div>
             <div class="form-group">
@@ -44,9 +25,69 @@
   
   <script lang="ts">
 import { defineComponent } from "vue";
-import { RouterLink } from "vue-router";
-
+import { ApartamentosClient } from "@/client/Apartamento.client";
+import { Apartamento } from "@/model/Apartamento";
 export default defineComponent({
   name: "ApartamentoForm",
+
+  data(){
+    return{
+        apartamento: new Apartamento(),
+        apartamentosClient: new ApartamentosClient() 
+    }
+  },
+  computed: {
+    id () {
+      return this.$route.query.id
+    },
+    form () {
+      return this.$route.query.form
+    }
+  },
+
+  mounted(){
+    if(this.id !== undefined){
+        this.findById(Number(this.id))
+    }
+  },
+  methods:{
+    findById(id: number){
+        this.apartamentosClient.findById(id)
+        .then(sucess => {
+          this.apartamento = sucess;
+        })
+        .catch(error => {
+        });
+    },
+
+    onClickCadastrar(){
+        this.apartamentosClient.cadastrar(this.apartamento)
+        .then(sucess => {
+          this.apartamento = new Apartamento();
+        })
+        .catch(error => {
+        });
+    },
+
+    onClickEditar(){
+      this.apartamentosClient.editar(this.apartamento.id, this.apartamento)
+        .then(sucess => {
+          this.apartamento = new Apartamento()
+        })
+        .catch(error => {
+        });
+    },
+
+    onClickExcluir(){
+      this.apartamentosClient.desativar(this.apartamento.id)
+        .then(sucess => {
+          this.apartamento = new Apartamento()          
+          this.$router.push({ name: 'ListCondutor' });
+        })
+        .catch(error => {
+        });
+    }
+  }
+
 });
 </script>
