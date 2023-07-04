@@ -7,7 +7,7 @@ export class ApartamentosClient {
 
   constructor() {
     this.axiosClient = axios.create({
-      baseURL: "http://localhost:8080/api/apartamento",
+      baseURL: "http://localhost:8081/api/apartamento",
       headers: { "Content-type": "application/json" },
     });
   }
@@ -91,3 +91,4 @@ export class ApartamentosClient {
     }
   }
 }
+export default new ApartamentosClient();

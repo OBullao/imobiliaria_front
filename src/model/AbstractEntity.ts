@@ -1,5 +1,5 @@
 export class AbstractEntity{
-    id!: Number
+    id!: number
     cadastro!:Number
     edicao!:Number
     ativo!:boolean

@@ -75,37 +75,17 @@
        </div>
       </div>
   </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
 import { DescricaoModel } from '@/model/DescricaoModel';
-import {DescricaoClient} from "@/client/Descricao.client"
-import  {LocalizacaoClient}  from '@/client/Localizacao.client';
-import { localizacaoModel } from '@/model/LocalizacaoModel';
+import DescricaoClient from "@/client/Descricao.client"
+import  LocalizacaoClient  from '@/client/Localizacao.client';
+import { LocalizacaoModel } from '@/model/LocalizacaoModel';
 import { ConstrucaoModel } from '@/model/ConstrucaoModel';
-import {ConstrucaoClient} from '@/client/Construcao.client';
-import  {ApartamentosClient}  from '@/client/Apartamento.client';
+import ConstrucaoClient from '@/client/Construcao.client';
+import ApartamentosClient  from '@/client/Apartamento.client';
 import { Apartamento } from '@/model/Apartamento';
 
 
@@ -115,13 +95,9 @@ export default defineComponent({
     data(){
       return{
         descricao: new DescricaoModel(),
-        DescricaoClient: new DescricaoClient(),
-        localizacao: new localizacaoModel(),
-        LocalizacaoClient: new LocalizacaoClient(),
+        localizacao: new LocalizacaoModel(),
         construcao: new ConstrucaoModel(),
-        ConstrucaoClient: new ConstrucaoClient(),
-        apartamento: new Apartamento(),
-        ApartamentosClient: new ApartamentosClient()
+        apartamento: new Apartamento()
       }
     },
     computed:{
@@ -147,7 +123,7 @@ export default defineComponent({
 },
     methods: {
       findbyIdDesc(id: number){
-        this.DescricaoClient.findById(id)
+        DescricaoClient.findById(id)
         .then(sucess => {
           this.descricao = sucess;
         })
@@ -156,7 +132,7 @@ export default defineComponent({
       },
 
       findbyIdLoc(id: number){
-        this.LocalizacaoClient.findById(id)
+        LocalizacaoClient.findById(id)
         .then(sucess => {
           this.localizacao = sucess;
         })
@@ -165,7 +141,7 @@ export default defineComponent({
       },
 
       findbyIdCon(id: number){
-        this.ConstrucaoClient.findById(id)
+        ConstrucaoClient.findById(id)
         .then(sucess => {
           this.construcao = sucess;
         })
@@ -174,7 +150,7 @@ export default defineComponent({
       },
 
       findbyIdAps(id: number){
-        this.ApartamentosClient.findById(id)
+        ApartamentosClient.findById(id)
         .then(sucess => {
           this.apartamento = sucess;
         })
@@ -183,7 +159,6 @@ export default defineComponent({
       },
     }  
   }
-
   );
 
 
