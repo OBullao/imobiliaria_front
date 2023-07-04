@@ -1,55 +1,145 @@
 <template>
     <div>
       <h1>Formulário - Localização</h1>
+      <div v-if="mensagem.ativo" class="row">
+      <div class="col-md-12 text-start">
+        <div :class="mensagem.css" role="alert">
+          <strong>{{ mensagem.titulo }}</strong> {{ mensagem.mensagem }}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      </div>
+    </div>
       <form>
         <div class="form-group">
-          <label for="id">ID:</label>
-          <input type="number" ref="id" class="form-control" id="id" placeholder="Digite o ID" required>
-        </div>
-        <div class="form-group">
-          <label for="cadastro">Data de Cadastro:</label>
-          <input type="datetime-local" ref="cadastro" class="form-control" id="cadastro" required>
-        </div>
-        <div class="form-group">
-          <label for="edicao">Data de Edição:</label>
-          <input type="datetime-local" ref="edicao" class="form-control" id="edicao">
-        </div>
-        <div class="form-group">
-          <label for="ativo">Ativo:</label>
-          <select ref="ativo" class="form-control" id="ativo">
-            <option value="true">Sim</option>
-            <option value="false">Não</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="cep">CEP:</label>
-          <input type="text" ref="cep" class="form-control" id="cep" placeholder="Digite o CEP" required>
+          <label for="cep">CEP:</label>   
+          <input type="text" :disabled="form === 'excluir' ? disabled : false"  class="form-control" v-model="localizacao.cep">
         </div>
         <div class="form-group">
           <label for="numero">Número:</label>
-          <input type="number" ref="numero" class="form-control" id="numero" placeholder="Digite o número" required>
+          <input type="number" :disabled="form === 'excluir' ? disabled : false"  class="form-control" v-model="localizacao.numero">
         </div>
         <div class="form-group">
           <label for="rua">Rua:</label>
-          <input type="text" ref="rua" class="form-control" id="rua" placeholder="Digite a rua" required>
+          <input type="text" r:disabled="form === 'excluir' ? disabled : false"  class="form-control" v-model="localizacao.rua">
         </div>
         <div class="form-group">
           <label for="cidade">Cidade:</label>
-          <input type="text" ref="cidade" class="form-control" id="cidade" placeholder="Digite a cidade" required>
+          <input type="text" :disabled="form === 'excluir' ? disabled : false"  class="form-control" v-model="localizacao.cidade">
         </div>
         <div class="form-group">
           <label for="bairro">Bairro:</label>
-          <input type="text" ref="bairro" class="form-control" id="bairro" placeholder="Digite o bairro" required>
+          <input type="text" :disabled="form === 'excluir' ? disabled : false"  class="form-control" v-model="localizacao.bairro">
         </div>
-        <button type="submit" class="btn btn-primary">Enviar</button>
+        <div class="d-grid gap-1">
+        
+        <button v-if="form === undefined" type="button" class="btn btn-success" @click="onClickCadastrar()">Cadastrar</button>
+        <button v-if="form === 'editar'" type="button" class="btn btn-warning" @click="onClickEditar()">Editar</button>
+        <button v-if="form === 'excluir'" type="button" class="btn btn-danger" @click="onClickExcluir()">Excluir</button>
+      </div>
       </form>
     </div>
   </template>
+
+
 <script lang="ts">
-import { defineComponent } from "vue";
-import { RouterLink } from "vue-router";
+import LocalizacaoClient from '@/client/Localizacao.client';
+import { LocalizacaoModel } from '@/model/LocalizacaoModel';
+import { defineComponent } from 'vue';
 
 export default defineComponent({
-  name: "LocalizacaoForm",
+  name: 'CompradorForm',
+  data() {
+    return {
+      localizacao: new LocalizacaoModel(),
+      mensagem: {
+        ativo: false,
+        titulo: "",
+        mensagem: "",
+        css: ""
+      },
+      disabled: false
+    };
+  },
+  computed: {
+    id() {
+      return this.$route.query.id;
+    },
+    form() {
+      return this.$route.query.form;
+    }
+  },
+  mounted() {
+    if (this.id !== undefined) {
+      this.findById(Number(this.id));
+    }
+  },
+  methods: {
+    onClickCadastrar() {
+      LocalizacaoClient.cadastrar(this.localizacao)
+        .then(success => {
+          this.localizacao = new LocalizacaoModel();
+          this.mensagem.ativo = true;
+          this.mensagem.mensagem = success;
+          this.mensagem.titulo = "Parabéns. ";
+          this.mensagem.css = "alert alert-success alert-dismissible fade show";
+        })
+        .catch(error => {
+          this.mensagem.ativo = true;
+          this.mensagem.mensagem = error.data;
+          this.mensagem.titulo = "Erro. ";
+          this.mensagem.css = "alert alert-danger alert-dismissible fade show";
+        });
+    },
+    findById(id: number) {
+      LocalizacaoClient.findById(id)
+        .then(success => {
+          this.localizacao = success;
+        })
+        .catch(error => {
+          this.mensagem.ativo = true;
+          this.mensagem.mensagem = error.data;
+          this.mensagem.titulo = "Erro. ";
+          this.mensagem.css = "alert alert-danger alert-dismissible fade show";
+        });
+    }
+  }
 });
 </script>
+
+/*,onClickEditar() {
+    if (this.comprador.id) {
+      CompradorClient.editar(this.comprador.id, this.comprador)
+        .then(success => {
+          this.comprador = new CompradorModel();
+          this.mensagem.ativo = true;
+          this.mensagem.mensagem = success;
+          this.mensagem.titulo = "Parabéns. ";
+          this.mensagem.css = "alert alert-success alert-dismissible fade show";
+        })
+        .catch(error => {
+          this.mensagem.ativo = true;
+          this.mensagem.mensagem = error;
+          this.mensagem.titulo = "Erro. ";
+          this.mensagem.css = "alert alert-danger alert-dismissible fade show";
+        });
+    } else {
+      console.error("ID da comprador indefinido. Não é possível editar.");
+    }
+  },
+      onClickExcluir() {
+    if (this.comprador.id) {
+      CompradorClient.excluir(this.comprador.id)
+        .then(success => {
+          this.comprador = new CompradorModel();
+          this.$router.push({ name: 'comprador-lista-view' });
+        })
+        .catch(error => {
+          this.mensagem.ativo = true;
+          this.mensagem.mensagem = error;
+          this.mensagem.titulo = "Erro. ";
+          this.mensagem.css = "alert alert-danger alert-dismissible fade show";
+        });
+    } else {
+      console.error("ID da marcompradorca indefinido. Não é possível excluir.");
+    }
+      }    */

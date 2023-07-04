@@ -19,8 +19,6 @@
     <ConstrucaoForm/>
     <H1>separar</H1>
     <PropriedadeForm/>
-    <H1>separar</H1>
-    <OperacaoForm/>
 
     </template>
 
@@ -34,7 +32,6 @@ import DescricaoForm from '../components/DescricaoForm.vue'
 import LocalizacaoForm from '../components/LocalizacaoForm.vue'
 import ConstrucaoForm from '../components/ConstrucaoForm.vue'
 import PropriedadeForm from '../components/propriedadeForm.vue'
-import OperacaoForm from '../components/OperacaoForm.vue'
 import CompradorForm from '../components/CompradorForm.vue'
 import VendedorForm from '../components/VendedorForm.vue'
 import ProprietarioForm from '../components/ProprietarioForm.vue'
@@ -52,7 +49,6 @@ import ProprietarioForm from '../components/ProprietarioForm.vue'
        LocalizacaoForm,
        ConstrucaoForm,
        PropriedadeForm,
-       OperacaoForm,
        CompradorForm,
        VendedorForm,
        ProprietarioForm
