@@ -138,6 +138,6 @@ img {
   border-radius: 2%;
 }
 .foto{
-  min-height: 25vw;
+  min-height: 25v;
 }
 </style>
