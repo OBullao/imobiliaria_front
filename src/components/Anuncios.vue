@@ -28,7 +28,7 @@
     
       <div v-for="item in List" :key="item.id" class="col mb-2">
         <div class="card h-100 card-hover fundo">
-          <div class="position-relative">
+          <div class="foto position-relative">
             <router-link
   type="button"
   class="btn btn-sm btn-info"
@@ -136,5 +136,8 @@ export default defineComponent({
 
 img {
   border-radius: 2%;
+}
+.foto{
+  min-height: 25vw;
 }
 </style>
