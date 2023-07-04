@@ -20,11 +20,20 @@ export class ApartamentosClient {
   }
   public async findById(id: number): Promise<Apartamento> {
     try {
-      return (await this.axiosClient.get<Apartamento>(`/${id}`)).data;
+      return (await this.axiosClient.get<Apartamento>(`/lista/id/${id}`)).data;
     } catch (error: any) {
       return Promise.reject(error.response);
     }
   }
+
+  public  async listAll() : Promise<Apartamento[]>{
+    try{
+        return (await this.axiosClient.get<Apartamento[]> ('/lista')).data
+    }
+    catch(error: any){
+        return Promise.reject(error.response)
+    }
+}
 
   public async cadastrar(cadastrar: Apartamento): Promise<void> {
     try {
@@ -34,23 +43,31 @@ export class ApartamentosClient {
     }
   }
 
-  public async editar(editar: Apartamento): Promise<void> {
+  public async editar (id: Number, apartamento: Apartamento) :Promise<string>{
     try {
-      return (await this.axiosClient.put(`/${editar.id}`, editar)).data;
+        return (await this.axiosClient.put<string>(`/${id}`, apartamento)).data
+        
     } catch (error: any) {
-      return Promise.reject(error.response);
+        return Promise.reject(error.response)   
     }
-  }
+}
 
-  public async desativar(deasativar: Apartamento): Promise<void> {
-    try {
-      return (
-        await this.axiosClient.put(`/desativar/${deasativar.id}`, deasativar)
-      ).data;
-    } catch (error: any) {
-      return Promise.reject(error.response);
-    }
+
+
+
+
+
+
+  public async desativar(id:Number): Promise<string> {
+    try{
+      return (await this.axiosClient.delete<string>(`/${id}`)).data
   }
+  catch(error:any)
+  {
+      return Promise.reject(error.response)
+
+  }
+}
 
   public async findByFiltrosPaginado(
     pageRequest: PageRequest
