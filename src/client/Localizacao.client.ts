@@ -12,13 +12,13 @@ class LocalizacaoClient {
   }
   public async findById(id: number): Promise<LocalizacaoModel> {
     try {
-      return (await this.axiosClient.get<LocalizacaoModel>(`/lista/id/${id}`)).data;
+      return (await this.axiosClient.get<localizacaoModel>(`/${id}`)).data;
     } catch (error: any) {
       return Promise.reject(error.response);
     }
   }
 
-  public async listaAll(): Promise<any> {
+  public async cadastrar(cadastrar: localizacaoModel): Promise<void> {
     try {
       return (await this.axiosClient.get<LocalizacaoModel[]>(`/lista`)).data;
     } catch (error: any) {
@@ -50,7 +50,3 @@ class LocalizacaoClient {
     }
   }
 }
-
-export default new LocalizacaoClient();
-
-
