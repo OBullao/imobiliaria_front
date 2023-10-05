@@ -39,20 +39,18 @@
 
 
 
-
   </template>
   
   <script lang="ts">
 import { defineComponent } from "vue";
-import { ApartamentosClient } from "@/client/Apartamento.client";
+import  ApartamentosClient  from "@/client/Apartamento.client";
 import { Apartamento } from "@/model/Apartamento";
 export default defineComponent({
   name: "ApartamentoForm",
 
   data(){
     return{
-        apartamento: new Apartamento(),
-        apartamentosClient: new ApartamentosClient() 
+        apartamento: new Apartamento()
     }
   },
   computed: {
@@ -71,7 +69,7 @@ export default defineComponent({
   },
   methods:{
     findById(id: number){
-        this.apartamentosClient.findById(id)
+        ApartamentosClient.findById(id)
         .then(sucess => {
           this.apartamento = sucess;
         })
@@ -80,7 +78,7 @@ export default defineComponent({
     },
 
     onClickCadastrar(){
-        this.apartamentosClient.cadastrar(this.apartamento)
+      ApartamentosClient.cadastrar(this.apartamento)
         .then(sucess => {
           this.apartamento = new Apartamento();
         })
@@ -89,7 +87,7 @@ export default defineComponent({
     },
 
     onClickEditar(){
-      this.apartamentosClient.editar(this.apartamento.id, this.apartamento)
+      ApartamentosClient.editar(this.apartamento.id, this.apartamento)
         .then(sucess => {
           this.apartamento = new Apartamento()
         })
@@ -98,7 +96,7 @@ export default defineComponent({
     },
 
     onClickExcluir(){
-      this.apartamentosClient.desativar(this.apartamento.id)
+      ApartamentosClient.desativar(this.apartamento.id)
         .then(sucess => {
           this.apartamento = new Apartamento()          
           this.$router.push({ name: 'ListCondutor' });
